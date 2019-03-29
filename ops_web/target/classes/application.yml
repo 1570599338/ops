@@ -1,0 +1,33 @@
+server:
+  ## 端口
+  context-path: /ops
+  port: 8080
+spring:
+  profiles:
+    ## 加载配置
+    active: dev
+  # 数据库
+  datasource:
+    ops:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://112.125.90.15:3309/study?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username: admin
+      password: xyz6915256
+  redis:
+    database: 5
+    host: 101.201.121.29
+    port: 6379
+    password: xcdq7SO45Ql5Wjhg
+    pool:
+      max-idle: 500
+      min-idle: 1
+      max-active: 200
+      max-wait: 5000
+
+  cache:
+    defaultExpiration: 60
+
+
+
+
