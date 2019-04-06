@@ -27,10 +27,10 @@ spring:git
 
   cache:
     defaultExpiration: 60
-      freemarker:
-        check-template-location: false
-    logging:
-      config: classpath:logback.xml
+  freemarker:
+    check-template-location: false
+logging:
+  config: classpath:logback.xml
 
 
 
