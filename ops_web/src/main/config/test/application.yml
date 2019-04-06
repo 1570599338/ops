@@ -30,7 +30,7 @@ spring:git
       freemarker:
         check-template-location: false
     logging:
-      config: classpath:logback.xmlgi
+      config: classpath:logback.xml
 
 
 
