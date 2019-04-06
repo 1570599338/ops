@@ -30,6 +30,7 @@ spring:
   freemarker:
     check-template-location: false
 logging:
+  level: TRACE
   config: classpath:logback.xml
 
 
