@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.ops.dao.ProjectMapper">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Project">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Number" jdbcType="VARCHAR" property="number" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="TINYINT" property="type" />
+    <result column="BeginDate" jdbcType="TIMESTAMP" property="begindate" />
+    <result column="EndDate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="Director" jdbcType="VARCHAR" property="director" />
+    <result column="Mebers" jdbcType="VARCHAR" property="mebers" />
+    <result column="QuotaServiceState" jdbcType="SMALLINT" property="quotaservicestate" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="State" jdbcType="TINYINT" property="state" />
+    <result column="Active" jdbcType="BIT" property="active" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedBy" jdbcType="VARCHAR" property="createdby" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedBy" jdbcType="VARCHAR" property="updatedby" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, `Number`, `Name`, `Type`, BeginDate, EndDate, Director, Mebers, QuotaServiceState, 
+    Remark, `State`, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from project
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from project
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lquan.ops.model.po.Project">
+    insert into project (ID, `Number`, `Name`, 
+      `Type`, BeginDate, EndDate, 
+      Director, Mebers, QuotaServiceState, 
+      Remark, `State`, Active, 
+      CreatedAt, CreatedBy, UpdatedAt, 
+      UpdatedBy)
+    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{type,jdbcType=TINYINT}, #{begindate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, 
+      #{director,jdbcType=VARCHAR}, #{mebers,jdbcType=VARCHAR}, #{quotaservicestate,jdbcType=SMALLINT}, 
+      #{remark,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, #{active,jdbcType=BIT}, 
+      #{createdat,jdbcType=TIMESTAMP}, #{createdby,jdbcType=VARCHAR}, #{updatedat,jdbcType=TIMESTAMP}, 
+      #{updatedby,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Project">
+    insert into project
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="number != null">
+        `Number`,
+      </if>
+      <if test="name != null">
+        `Name`,
+      </if>
+      <if test="type != null">
+        `Type`,
+      </if>
+      <if test="begindate != null">
+        BeginDate,
+      </if>
+      <if test="enddate != null">
+        EndDate,
+      </if>
+      <if test="director != null">
+        Director,
+      </if>
+      <if test="mebers != null">
+        Mebers,
+      </if>
+      <if test="quotaservicestate != null">
+        QuotaServiceState,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="state != null">
+        `State`,
+      </if>
+      <if test="active != null">
+        Active,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdby != null">
+        CreatedBy,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedby != null">
+        UpdatedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="begindate != null">
+        #{begindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="director != null">
+        #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="mebers != null">
+        #{mebers,jdbcType=VARCHAR},
+      </if>
+      <if test="quotaservicestate != null">
+        #{quotaservicestate,jdbcType=SMALLINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=BIT},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null">
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Project">
+    update project
+    <set>
+      <if test="number != null">
+        `Number` = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `Name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `Type` = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="begindate != null">
+        BeginDate = #{begindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        EndDate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="director != null">
+        Director = #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="mebers != null">
+        Mebers = #{mebers,jdbcType=VARCHAR},
+      </if>
+      <if test="quotaservicestate != null">
+        QuotaServiceState = #{quotaservicestate,jdbcType=SMALLINT},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `State` = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="active != null">
+        Active = #{active,jdbcType=BIT},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        CreatedBy = #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null">
+        UpdatedBy = #{updatedby,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Project">
+    update project
+    set `Number` = #{number,jdbcType=VARCHAR},
+      `Name` = #{name,jdbcType=VARCHAR},
+      `Type` = #{type,jdbcType=TINYINT},
+      BeginDate = #{begindate,jdbcType=TIMESTAMP},
+      EndDate = #{enddate,jdbcType=TIMESTAMP},
+      Director = #{director,jdbcType=VARCHAR},
+      Mebers = #{mebers,jdbcType=VARCHAR},
+      QuotaServiceState = #{quotaservicestate,jdbcType=SMALLINT},
+      Remark = #{remark,jdbcType=VARCHAR},
+      `State` = #{state,jdbcType=TINYINT},
+      Active = #{active,jdbcType=BIT},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedBy = #{createdby,jdbcType=VARCHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedBy = #{updatedby,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

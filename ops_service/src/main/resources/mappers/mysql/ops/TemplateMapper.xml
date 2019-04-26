@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.ops.dao.TemplateMapper">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Template">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ProjectID" jdbcType="INTEGER" property="projectid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Alias" jdbcType="VARCHAR" property="alias" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="State" jdbcType="SMALLINT" property="state" />
+    <result column="Guide" jdbcType="VARCHAR" property="guide" />
+    <result column="SignAgreement" jdbcType="BIT" property="signagreement" />
+    <result column="Rank" jdbcType="SMALLINT" property="rank" />
+    <result column="GoBack" jdbcType="BIT" property="goback" />
+    <result column="ParticipantMask" jdbcType="SMALLINT" property="participantmask" />
+    <result column="WaitBeforeNext" jdbcType="INTEGER" property="waitbeforenext" />
+    <result column="Active" jdbcType="BIT" property="active" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedBy" jdbcType="VARCHAR" property="createdby" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedBy" jdbcType="VARCHAR" property="updatedby" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ProjectID, `Name`, `Alias`, Remark, `State`, Guide, SignAgreement, `Rank`, GoBack, 
+    ParticipantMask, WaitBeforeNext, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from template
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from template
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lquan.ops.model.po.Template">
+    insert into template (ID, ProjectID, `Name`, 
+      `Alias`, Remark, `State`, 
+      Guide, SignAgreement, `Rank`, 
+      GoBack, ParticipantMask, WaitBeforeNext, 
+      Active, CreatedAt, CreatedBy, 
+      UpdatedAt, UpdatedBy)
+    values (#{id,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{alias,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{state,jdbcType=SMALLINT}, 
+      #{guide,jdbcType=VARCHAR}, #{signagreement,jdbcType=BIT}, #{rank,jdbcType=SMALLINT}, 
+      #{goback,jdbcType=BIT}, #{participantmask,jdbcType=SMALLINT}, #{waitbeforenext,jdbcType=INTEGER}, 
+      #{active,jdbcType=BIT}, #{createdat,jdbcType=TIMESTAMP}, #{createdby,jdbcType=VARCHAR}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Template">
+    insert into template
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="projectid != null">
+        ProjectID,
+      </if>
+      <if test="name != null">
+        `Name`,
+      </if>
+      <if test="alias != null">
+        `Alias`,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="state != null">
+        `State`,
+      </if>
+      <if test="guide != null">
+        Guide,
+      </if>
+      <if test="signagreement != null">
+        SignAgreement,
+      </if>
+      <if test="rank != null">
+        `Rank`,
+      </if>
+      <if test="goback != null">
+        GoBack,
+      </if>
+      <if test="participantmask != null">
+        ParticipantMask,
+      </if>
+      <if test="waitbeforenext != null">
+        WaitBeforeNext,
+      </if>
+      <if test="active != null">
+        Active,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdby != null">
+        CreatedBy,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedby != null">
+        UpdatedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="projectid != null">
+        #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null">
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=SMALLINT},
+      </if>
+      <if test="guide != null">
+        #{guide,jdbcType=VARCHAR},
+      </if>
+      <if test="signagreement != null">
+        #{signagreement,jdbcType=BIT},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=SMALLINT},
+      </if>
+      <if test="goback != null">
+        #{goback,jdbcType=BIT},
+      </if>
+      <if test="participantmask != null">
+        #{participantmask,jdbcType=SMALLINT},
+      </if>
+      <if test="waitbeforenext != null">
+        #{waitbeforenext,jdbcType=INTEGER},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=BIT},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null">
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Template">
+    update template
+    <set>
+      <if test="projectid != null">
+        ProjectID = #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `Name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null">
+        `Alias` = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `State` = #{state,jdbcType=SMALLINT},
+      </if>
+      <if test="guide != null">
+        Guide = #{guide,jdbcType=VARCHAR},
+      </if>
+      <if test="signagreement != null">
+        SignAgreement = #{signagreement,jdbcType=BIT},
+      </if>
+      <if test="rank != null">
+        `Rank` = #{rank,jdbcType=SMALLINT},
+      </if>
+      <if test="goback != null">
+        GoBack = #{goback,jdbcType=BIT},
+      </if>
+      <if test="participantmask != null">
+        ParticipantMask = #{participantmask,jdbcType=SMALLINT},
+      </if>
+      <if test="waitbeforenext != null">
+        WaitBeforeNext = #{waitbeforenext,jdbcType=INTEGER},
+      </if>
+      <if test="active != null">
+        Active = #{active,jdbcType=BIT},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        CreatedBy = #{createdby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null">
+        UpdatedBy = #{updatedby,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Template">
+    update template
+    set ProjectID = #{projectid,jdbcType=INTEGER},
+      `Name` = #{name,jdbcType=VARCHAR},
+      `Alias` = #{alias,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      `State` = #{state,jdbcType=SMALLINT},
+      Guide = #{guide,jdbcType=VARCHAR},
+      SignAgreement = #{signagreement,jdbcType=BIT},
+      `Rank` = #{rank,jdbcType=SMALLINT},
+      GoBack = #{goback,jdbcType=BIT},
+      ParticipantMask = #{participantmask,jdbcType=SMALLINT},
+      WaitBeforeNext = #{waitbeforenext,jdbcType=INTEGER},
+      Active = #{active,jdbcType=BIT},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedBy = #{createdby,jdbcType=VARCHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedBy = #{updatedby,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
