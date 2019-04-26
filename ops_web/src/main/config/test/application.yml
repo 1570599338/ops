@@ -1,7 +1,7 @@
 server:
   ## 端口
   context-path: /ops
-  port: 8080
+  port: 88
 spring:
   profiles:
     ## 加载配置
@@ -11,7 +11,7 @@ spring:
     ops:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3309/study?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      url: jdbc:mysql://112.125.90.15:3309/study?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
       username: admin
       password: xyz6915256
   redis:
