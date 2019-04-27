@@ -1,5 +1,7 @@
 package com.lquan.ops.service.questionnaire;
 
+import java.util.List;
+
 import com.lquan.ops.model.po.Template;
 
 public interface ITemplateServer {
@@ -10,5 +12,12 @@ public interface ITemplateServer {
 	 * @return
 	 */
 	public Template createTemplate(Template template);
+	
+	/**
+	 * 查询问卷模版
+	 * @param template
+	 * @return
+	 */
+	public List<Template> searchTemplate(Template template);
 
 }

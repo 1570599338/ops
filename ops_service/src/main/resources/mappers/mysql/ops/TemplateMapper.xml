@@ -231,4 +231,63 @@
       UpdatedBy = #{updatedBy,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=INTEGER}
   </update>
+  
+  <!-- 按条件查询 -->
+   <select id="selectByConfidtion"  parameterType="com.lquan.ops.model.po.Template" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from template
+    where 1=1
+     <if test="ID != null">
+       and ID = #{ID}
+      </if>
+    <if test="projectID != null">
+       and  ProjectID = #{projectID}
+      </if>
+      <if test="name != null">
+        and `Name` = #{name}
+      </if>
+      <if test="alias != null">
+        and `Alias` = #{alias}
+      </if>
+      <if test="remark != null">
+        and Remark = #{remark}
+      </if>
+      <if test="state != null">
+        and `State` = #{state}
+      </if>
+      <if test="guide != null">
+        and Guide = #{guide}
+      </if>
+      <if test="signAgreement != null">
+        and SignAgreement = #{signAgreement}
+      </if>
+      <if test="rank != null">
+       and  `Rank` = #{rank}
+      </if>
+      <if test="goBack != null">
+        and GoBack = #{goBack}
+      </if>
+      <if test="participantMask != null">
+       and  ParticipantMask = #{participantMask}
+      </if>
+      <if test="waitBeforeNext != null">
+       and  WaitBeforeNext = #{waitBeforeNext}
+      </if>
+      <if test="active != null">
+        and Active = #{active}
+      </if>
+      <if test="createdAt != null">
+        and CreatedAt = #{createdAt}
+      </if>
+      <if test="createdBy != null">
+        and CreatedBy = #{createdBy}
+      </if>
+      <if test="updatedAt != null">
+        and UpdatedAt = #{updatedAt}
+      </if>
+      <if test="updatedBy != null">
+        and UpdatedBy = #{updatedBy}
+      </if>
+  </select>
 </mapper>

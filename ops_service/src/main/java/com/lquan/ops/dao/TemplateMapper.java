@@ -1,5 +1,7 @@
 package com.lquan.ops.dao;
 
+import java.util.List;
+
 import com.lquan.ops.model.po.Template;
 
 public interface TemplateMapper {
@@ -14,4 +16,11 @@ public interface TemplateMapper {
     int updateByPrimaryKeySelective(Template record);
 
     int updateByPrimaryKey(Template record);
+    
+    /**
+     *  按条件查询
+     * @param record
+     * @return
+     */
+   List<Template> selectByConfidtion(Template record);
 }

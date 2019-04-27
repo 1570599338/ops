@@ -1,6 +1,7 @@
 package com.lquan.web.control.questionnaire;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,30 +37,51 @@ public class TemplateControl {
 	 private ITemplateServer templateServer;
 	
 	
+	 /**
+	  * 添加模版出错
+	  * @param param
+	  * @param request
+	  * @param response
+	  * @return
+	  * 
+	  */
 	 @ResponseBody
 	 @RequestMapping("/create")
 	 public ResponseJson createTemplate(@RequestBody Template param,HttpServletRequest request, HttpServletResponse response){
-		 String userName = "test";
-		 System.out.println(param);
-		 param.setCreatedBy(userName);
-		 Template bean= templateServer.createTemplate(param);
-//	        if(param==null) {
-//	            return ResponseResult.getErrorResponse(ReturnCode.REQUEST_PARAM_ERROR, ReturnCode.getReturnMsg(ReturnCode.REQUEST_PARAM_ERROR));
-//	        }
-//	        if(param.getProductChannel()==null || param.getMemberid() == null) {
-//	            log.info("param.getProductChannel():"+param.getProductChannel()+",param.getMemberid()="+param.getMemberid());
-//	            return ResponseResult.getErrorResponse(ReturnCode.REQUEST_PARAM_NOTNONE, ReturnCode.getReturnMsg(ReturnCode.REQUEST_PARAM_NOTNONE));
-//	        }
-//	        log.info("查询用户黑白名单信息【理财产品渠道：{}，用户ID：{} 】",param.getProductChannel(),param.getMemberid());
-//	        try {
-//	            Map<String, String> stringMap = resourceService.rBlackWhiteInfo(param.getProductChannel(), param.getMemberid());
-//	            return ResponseResult.getOkResponse(stringMap);
-//	        } catch (Exception e) {
-//	            log.error("查询用户黑白名单信息报错！",e);
-//	        }
-	        return ResponseResult.getOkResponse(bean);
-	        //return ResponseResult.getErrorResponse(ReturnCode.DB_OPERATION_FAILURE, ReturnCode.getReturnMsg(ReturnCode.DB_OPERATION_FAILURE));
-	    }
+		 try {
+			String userName = "test";
+			 System.out.println(param);
+			 param.setCreatedBy(userName);
+			 Template bean= templateServer.createTemplate(param);
+
+			    return ResponseResult.getOkResponse(bean);
+		} catch (Exception e) {
+			log.error("添加问卷模版:{}",e);
+		}
+	        return ResponseResult.getErrorResponse(ReturnCode.DB_OPERATION_FAILURE, ReturnCode.getReturnMsg(ReturnCode.DB_OPERATION_FAILURE));
+	 }
+	 
+	 
+	 /**
+	  * 根据项目的ID查询
+	  * @param param
+	  * @param request
+	  * @param response
+	  * @return
+	  */
+	 @ResponseBody
+	 @RequestMapping("/search")
+	 public ResponseJson searchTemplate(Integer projectID,HttpServletRequest request, HttpServletResponse response){
+		 try {
+			 Template template = new Template();
+			 template.setProjectID(projectID);
+			 List<Template> list= templateServer.searchTemplate(template);
+			return ResponseResult.getOkResponse(list);
+		} catch (Exception e) {
+			log.error("查询问卷的模版数据异常:{}",e);
+		}
+	    return ResponseResult.getErrorResponse(ReturnCode.DB_OPERATION_FAILURE, ReturnCode.getReturnMsg(ReturnCode.DB_OPERATION_FAILURE));
+	 }
 	
 	
 

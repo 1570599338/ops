@@ -1,6 +1,7 @@
 package com.lquan.ops.service.questionnaire.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,16 @@ public class TemplateServerImpl implements ITemplateServer {
 		template.setCreatedAt(new Date());
 		templateMapper.insertSelective(template);
 		return template;
+	}
+
+	/**
+	 * 查询问卷模版
+	 * @param template
+	 * @return
+	 */
+	@Override
+	public List<Template> searchTemplate(Template template) {
+		return templateMapper.selectByConfidtion(template);
 	}
 
 }

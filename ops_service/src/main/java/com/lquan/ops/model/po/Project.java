@@ -3,7 +3,7 @@ package com.lquan.ops.model.po;
 import java.util.Date;
 
 public class Project {
-    private Integer id;
+    private Integer ID;
 
     private String number;
 
@@ -11,15 +11,15 @@ public class Project {
 
     private Byte type;
 
-    private Date begindate;
+    private Date beginDate;
 
-    private Date enddate;
+    private Date endDate;
 
     private String director;
 
     private String mebers;
 
-    private Short quotaservicestate;
+    private Integer quotaServiceState;
 
     private String remark;
 
@@ -27,20 +27,20 @@ public class Project {
 
     private Boolean active;
 
-    private Date createdat;
+    private Date createdAt;
 
-    private String createdby;
+    private String createdBy;
 
-    private Date updatedat;
+    private Date updatedAt;
 
-    private String updatedby;
+    private String updatedBy;
 
-    public Integer getId() {
-        return id;
+    public Integer getID() {
+        return ID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
     public String getNumber() {
@@ -67,20 +67,20 @@ public class Project {
         this.type = type;
     }
 
-    public Date getBegindate() {
-        return begindate;
+    public Date getBeginDate() {
+        return beginDate;
     }
 
-    public void setBegindate(Date begindate) {
-        this.begindate = begindate;
+    public void setBeginDate(Date beginDate) {
+        this.beginDate = beginDate;
     }
 
-    public Date getEnddate() {
-        return enddate;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEnddate(Date enddate) {
-        this.enddate = enddate;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public String getDirector() {
@@ -99,12 +99,12 @@ public class Project {
         this.mebers = mebers == null ? null : mebers.trim();
     }
 
-    public Short getQuotaservicestate() {
-        return quotaservicestate;
+    public Integer getQuotaServiceState() {
+        return quotaServiceState;
     }
 
-    public void setQuotaservicestate(Short quotaservicestate) {
-        this.quotaservicestate = quotaservicestate;
+    public void setQuotaServiceState(Integer quotaServiceState) {
+        this.quotaServiceState = quotaServiceState;
     }
 
     public String getRemark() {
@@ -131,35 +131,35 @@ public class Project {
         this.active = active;
     }
 
-    public Date getCreatedat() {
-        return createdat;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedat(Date createdat) {
-        this.createdat = createdat;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getCreatedby() {
-        return createdby;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreatedby(String createdby) {
-        this.createdby = createdby == null ? null : createdby.trim();
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy == null ? null : createdBy.trim();
     }
 
-    public Date getUpdatedat() {
-        return updatedat;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdatedat(Date updatedat) {
-        this.updatedat = updatedat;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public String getUpdatedby() {
-        return updatedby;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public void setUpdatedby(String updatedby) {
-        this.updatedby = updatedby == null ? null : updatedby.trim();
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy == null ? null : updatedBy.trim();
     }
 }
