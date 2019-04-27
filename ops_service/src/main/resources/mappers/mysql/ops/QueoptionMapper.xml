@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lquan.ops.dao.QueoptionMapper">
-  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Queoption">
+<mapper namespace="com.lquan.ops.dao.QueOptionMapper">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.QueOption">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="QuestionID" jdbcType="INTEGER" property="questionid" />
     <result column="Code" jdbcType="VARCHAR" property="code" />
@@ -48,7 +48,7 @@
     delete from queoption
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lquan.ops.model.po.Queoption">
+  <insert id="insert" parameterType="com.lquan.ops.model.po.QueOption" useGeneratedKeys="true"  keyProperty="ID">
     insert into queoption (ID, QuestionID, Code, 
       Title, ImageUrl, VideoUrl, 
       `Open`, Help, DispIndex, 
@@ -70,7 +70,7 @@
       #{active,jdbcType=BIT}, #{createdat,jdbcType=TIMESTAMP}, #{createdby,jdbcType=VARCHAR}, 
       #{updatedat,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Queoption">
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.QueOption" useGeneratedKeys="true"  keyProperty="id">
     insert into queoption
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -251,7 +251,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Queoption">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.QueOption">
     update queoption
     <set>
       <if test="questionid != null">
@@ -341,7 +341,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Queoption">
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.QueOption">
     update queoption
     set QuestionID = #{questionid,jdbcType=INTEGER},
       Code = #{code,jdbcType=VARCHAR},
@@ -373,4 +373,6 @@
       UpdatedBy = #{updatedby,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+ 
+  
 </mapper>

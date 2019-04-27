@@ -2,7 +2,7 @@ package com.lquan.ops.model.po;
 
 import java.util.Date;
 
-public class Queoption {
+public class QueOption {
     private Integer id;
 
     private Integer questionid;

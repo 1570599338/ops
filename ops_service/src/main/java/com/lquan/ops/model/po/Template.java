@@ -3,9 +3,9 @@ package com.lquan.ops.model.po;
 import java.util.Date;
 
 public class Template {
-    private Integer id;
+    private Integer ID;
 
-    private Integer projectid;
+    private Integer projectID;
 
     private String name;
 
@@ -13,44 +13,44 @@ public class Template {
 
     private String remark;
 
-    private Short state;
+    private Integer state;
 
     private String guide;
 
-    private Boolean signagreement;
+    private Boolean signAgreement;
 
-    private Short rank;
+    private Integer rank;
 
-    private Boolean goback;
+    private Boolean goBack;
 
-    private Short participantmask;
+    private Integer participantMask;
 
-    private Integer waitbeforenext;
+    private Integer waitBeforeNext;
 
     private Boolean active;
 
-    private Date createdat;
+    private Date createdAt;
 
-    private String createdby;
+    private String createdBy;
 
-    private Date updatedat;
+    private Date updatedAt;
 
-    private String updatedby;
+    private String updatedBy;
 
-    public Integer getId() {
-        return id;
+    public Integer getID() {
+        return ID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
-    public Integer getProjectid() {
-        return projectid;
+    public Integer getProjectID() {
+        return projectID;
     }
 
-    public void setProjectid(Integer projectid) {
-        this.projectid = projectid;
+    public void setProjectID(Integer projectID) {
+        this.projectID = projectID;
     }
 
     public String getName() {
@@ -77,11 +77,11 @@ public class Template {
         this.remark = remark == null ? null : remark.trim();
     }
 
-    public Short getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(Short state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 
@@ -93,44 +93,44 @@ public class Template {
         this.guide = guide == null ? null : guide.trim();
     }
 
-    public Boolean getSignagreement() {
-        return signagreement;
+    public Boolean getSignAgreement() {
+        return signAgreement;
     }
 
-    public void setSignagreement(Boolean signagreement) {
-        this.signagreement = signagreement;
+    public void setSignAgreement(Boolean signAgreement) {
+        this.signAgreement = signAgreement;
     }
 
-    public Short getRank() {
+    public Integer getRank() {
         return rank;
     }
 
-    public void setRank(Short rank) {
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 
-    public Boolean getGoback() {
-        return goback;
+    public Boolean getGoBack() {
+        return goBack;
     }
 
-    public void setGoback(Boolean goback) {
-        this.goback = goback;
+    public void setGoBack(Boolean goBack) {
+        this.goBack = goBack;
     }
 
-    public Short getParticipantmask() {
-        return participantmask;
+    public Integer getParticipantMask() {
+        return participantMask;
     }
 
-    public void setParticipantmask(Short participantmask) {
-        this.participantmask = participantmask;
+    public void setParticipantMask(Integer participantMask) {
+        this.participantMask = participantMask;
     }
 
-    public Integer getWaitbeforenext() {
-        return waitbeforenext;
+    public Integer getWaitBeforeNext() {
+        return waitBeforeNext;
     }
 
-    public void setWaitbeforenext(Integer waitbeforenext) {
-        this.waitbeforenext = waitbeforenext;
+    public void setWaitBeforeNext(Integer waitBeforeNext) {
+        this.waitBeforeNext = waitBeforeNext;
     }
 
     public Boolean getActive() {
@@ -141,35 +141,35 @@ public class Template {
         this.active = active;
     }
 
-    public Date getCreatedat() {
-        return createdat;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedat(Date createdat) {
-        this.createdat = createdat;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getCreatedby() {
-        return createdby;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreatedby(String createdby) {
-        this.createdby = createdby == null ? null : createdby.trim();
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy == null ? null : createdBy.trim();
     }
 
-    public Date getUpdatedat() {
-        return updatedat;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdatedat(Date updatedat) {
-        this.updatedat = updatedat;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public String getUpdatedby() {
-        return updatedby;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public void setUpdatedby(String updatedby) {
-        this.updatedby = updatedby == null ? null : updatedby.trim();
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy == null ? null : updatedBy.trim();
     }
 }
