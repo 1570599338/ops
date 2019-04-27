@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.ops.dao.StatementMapper">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Statement">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="templateID" jdbcType="INTEGER" property="templateID" />
+    <result column="Type" jdbcType="INTEGER" property="type" />
+    <result column="Title" jdbcType="VARCHAR" property="title" />
+    <result column="SubType" jdbcType="INTEGER" property="subType" />
+    <result column="Number" jdbcType="VARCHAR" property="number" />
+    <result column="Active" jdbcType="BIT" property="active" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="CreatedBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="UpdatedBy" jdbcType="VARCHAR" property="updatedBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, templateID, `Type`, Title, SubType, `Number`, Active, CreatedAt, CreatedBy, UpdatedAt, 
+    UpdatedBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from statement
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from statement
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lquan.ops.model.po.Statement">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into statement (templateID, `Type`, Title, 
+      SubType, `Number`, Active, 
+      CreatedAt, CreatedBy, UpdatedAt, 
+      UpdatedBy)
+    values (#{templateID,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{subType,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{active,jdbcType=BIT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Statement">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into statement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="templateID != null">
+        templateID,
+      </if>
+      <if test="type != null">
+        `Type`,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="subType != null">
+        SubType,
+      </if>
+      <if test="number != null">
+        `Number`,
+      </if>
+      <if test="active != null">
+        Active,
+      </if>
+      <if test="createdAt != null">
+        CreatedAt,
+      </if>
+      <if test="createdBy != null">
+        CreatedBy,
+      </if>
+      <if test="updatedAt != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedBy != null">
+        UpdatedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="templateID != null">
+        #{templateID,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null">
+        #{subType,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Statement">
+    update statement
+    <set>
+      <if test="templateID != null">
+        templateID = #{templateID,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `Type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null">
+        SubType = #{subType,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        `Number` = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null">
+        Active = #{active,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        CreatedBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UpdatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Statement">
+    update statement
+    set templateID = #{templateID,jdbcType=INTEGER},
+      `Type` = #{type,jdbcType=INTEGER},
+      Title = #{title,jdbcType=VARCHAR},
+      SubType = #{subType,jdbcType=INTEGER},
+      `Number` = #{number,jdbcType=VARCHAR},
+      Active = #{active,jdbcType=BIT},
+      CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
+      CreatedBy = #{createdBy,jdbcType=VARCHAR},
+      UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
+      UpdatedBy = #{updatedBy,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>
