@@ -12,5 +12,11 @@ public interface IStatementServer {
 	 * @param userName
 	 */
 	public void createStatement(List<Statement> recond,String userName);
+	
+	/**
+	 * 查询欢迎语
+	 * @param templateid
+	 */
+	public List<Statement> searchStatement(Integer templateid);
 
 }

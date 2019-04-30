@@ -161,4 +161,13 @@
       UpdatedBy = #{updatedBy,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=INTEGER}
   </update>
+  
+  <!-- 根据问卷模版的id查询数据 -->
+    <select id="selectByTemplateId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from statement
+    where templateID = #{templateid}
+  </select>
+  
 </mapper>

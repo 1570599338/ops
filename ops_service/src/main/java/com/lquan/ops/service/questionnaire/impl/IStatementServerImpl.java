@@ -34,4 +34,13 @@ public class IStatementServerImpl implements IStatementServer{
 		}
 	}
 
+	/**
+	 * 查询欢迎语
+	 * @param templateid
+	 */
+	@Override
+	public List<Statement> searchStatement(Integer templateid) {
+		return statementMapper.selectByTemplateId(templateid);
+	}
+
 }

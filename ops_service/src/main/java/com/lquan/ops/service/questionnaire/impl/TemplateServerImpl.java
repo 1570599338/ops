@@ -43,4 +43,34 @@ public class TemplateServerImpl implements ITemplateServer {
 		return templateMapper.selectByConfidtion(template);
 	}
 
+	/**
+	 * 修改
+	 * @param template
+	 * @return
+	 */
+	@Override
+	public Template updateTemplate(Template template) {
+		// TODO Auto-generated method stub
+		templateMapper.updateByPrimaryKeySelective(template);
+		return template;
+	}
+
+	/**
+	 * 删除
+	 * @param template
+	 * 
+	 */
+	@Override
+	public void deleteTemplate(Template template) {
+		templateMapper.deleteByPrimaryKey(template.getID());
+	}
+
+	/**
+	 * 根据主键查询
+	 */
+	@Override
+	public Template getTemplate(Template template) {
+		return templateMapper.selectByPrimaryKey(template.getID());
+	}
+
 }

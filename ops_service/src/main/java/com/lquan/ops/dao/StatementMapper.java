@@ -1,5 +1,7 @@
 package com.lquan.ops.dao;
 
+import java.util.List;
+
 import com.lquan.ops.model.po.Statement;
 
 public interface StatementMapper {
@@ -14,4 +16,11 @@ public interface StatementMapper {
     int updateByPrimaryKeySelective(Statement record);
 
     int updateByPrimaryKey(Statement record);
+    
+    /**
+     * 查询欢迎语
+     * @param templateid
+     * @return
+     */
+    public List<Statement> selectByTemplateId(Integer templateid);
 }

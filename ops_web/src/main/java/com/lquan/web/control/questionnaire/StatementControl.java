@@ -44,5 +44,24 @@ public class StatementControl {
 		}
 	    return ResponseResult.getErrorResponse(ReturnCode.DB_OPERATION_FAILURE, ReturnCode.getReturnMsg(ReturnCode.DB_OPERATION_FAILURE));
 	 }
+	 
+	 /**
+	  * 查询欢迎和结束语
+	  * @param list
+	  * @param request
+	  * @param response
+	  * @return
+	  */
+	 @ResponseBody
+	 @RequestMapping("/search")
+	 public ResponseJson searchStatement(Integer templateid,HttpServletRequest request, HttpServletResponse response){
+		 try {
+			 List<Statement> list = statementServer.searchStatement(templateid);
+			return ResponseResult.getOkResponse(list);
+		} catch (Exception e) {
+			log.error("查询欢迎和结束语数据异常:{}",e);
+		}
+	    return ResponseResult.getErrorResponse(ReturnCode.DB_OPERATION_FAILURE, ReturnCode.getReturnMsg(ReturnCode.DB_OPERATION_FAILURE));
+	 }
 
 }
