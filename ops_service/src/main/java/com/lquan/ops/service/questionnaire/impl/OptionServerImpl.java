@@ -49,8 +49,8 @@ public class OptionServerImpl implements IOptionServer {
 //			option.setCreatedBy(username);
 //			Object[]  arg = option.getObjectFile();
 //			arg[0]=pk_id;
-			option.setCreatedat(new Date());
-			option.setCreatedby(username);
+			option.setCreatedAt(new Date());
+			option.setCreatedBy(username);
 			queOptionMapper.insertSelective(option);
 			
 			//args.add(arg);
@@ -77,8 +77,8 @@ public class OptionServerImpl implements IOptionServer {
 		for(Orders order:list){
 			//args.add(new Object[] { order.getDispIndex(),order.getId() });
 			QueOption record  = new QueOption();
-			record.setId(order.getId().intValue());
-			record.setDispindex(Short.valueOf(order.getDispIndex()+""));
+			record.setID(order.getId().intValue());
+			record.setDispIndex(order.getDispIndex());
 			queOptionMapper.updateByPrimaryKeySelective(record);
 		}
 		
@@ -104,7 +104,7 @@ public class OptionServerImpl implements IOptionServer {
 //		StringBuffer sql = new StringBuffer();
 //		sql.append(" delete from queoption   where pk_id=").append(option.getId());
 //		int a = commonDao.update(sql.toString());
-		queOptionMapper.deleteByPrimaryKey(option.getId());
+		queOptionMapper.deleteByPrimaryKey(option.getID());
 		
 		return option;
 	}

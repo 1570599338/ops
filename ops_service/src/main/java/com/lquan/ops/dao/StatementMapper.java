@@ -2,6 +2,8 @@ package com.lquan.ops.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.lquan.ops.model.po.Statement;
 
 public interface StatementMapper {
@@ -22,5 +24,5 @@ public interface StatementMapper {
      * @param templateid
      * @return
      */
-    public List<Statement> selectByTemplateId(Integer templateid);
+    public List<Statement> selectByTemplateId(@Param("templateid") Integer templateid);
 }

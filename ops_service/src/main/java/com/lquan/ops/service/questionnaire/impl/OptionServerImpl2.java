@@ -46,8 +46,8 @@ public class OptionServerImpl2 implements IOptionServer2 {
 //			return true;
 //		return false;
 		QueOption record = new QueOption();
-		record.setId(firstID.intValue());
-		record.setDispindex(Short.valueOf(firstDispIndex+""));
+		record.setID(firstID.intValue());
+		record.setDispIndex(firstDispIndex);
 		queOptionMapper.updateByPrimaryKey(record);
 		return true;
 	}

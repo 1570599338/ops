@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lquan.ops.model.po.Statement;
-import com.lquan.ops.model.po.Template;
 import com.lquan.ops.service.questionnaire.IStatementServer;
-import com.lquan.ops.service.questionnaire.ITemplateServer;
 import com.lquan.response.ResponseJson;
 import com.lquan.response.ResponseResult;
 import com.lquan.response.ReturnCode;

@@ -2,30 +2,52 @@ package com.lquan.ops.service.questionnaire;
 
 import java.util.List;
 
-import com.lquan.ops.model.po.Orders;
+import com.alibaba.fastjson.JSONObject;
 import com.lquan.ops.model.po.QueOption;
 import com.lquan.ops.model.po.Question;
 
-//import net.sf.json.JSONObject;
 
-public interface IQuestionServer1 {
+public interface IQuestionServer2 {
 	
 	/**
-	 * 创建并返回数据
-	 * @param question
-	 * @param user
+	 * 插入题目
+	 * @param arg
 	 * @return
 	 * @throws Exception
 	 */
-	public Question createQuestion(Question question,String user) throws Exception;
+	public Boolean createQuestion(Question arg);
+	
+	/**
+	 * 插入选项数据
+	 * @param arg
+	 * @return
+	 * @throws Exception
+	 */
+	public Boolean createOPtion(QueOption arg);
+	
+	/**
+	 * 转换器讲Json数据转换成Question
+	 * @param json
+	 * @return
+	 */
+	public  Question ConverterQuestion(JSONObject json,String userName);
+	
+	/**
+	 * 讲Json数据转换成Bean
+	 * @param json
+	 * @param question
+	 * @param userName
+	 * @return
+	 */
+	public List<QueOption> ConverterQueOption(JSONObject json,Long question, String userName);
 	
 	/**
 	 * 删除题目
-	 * @param question
+	 * @param json
 	 * @return
 	 * @throws Exception
 	 */
-	public Question deleteQuestion(Question question) throws Exception;
+	public Boolean deleteQuestion(JSONObject json) throws Exception;
 	
 	/**
 	 *  调换题目的顺序
@@ -34,35 +56,8 @@ public interface IQuestionServer1 {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Orders> moveQuestion(List<Orders> objs) throws Exception;
+	public Boolean moveQuestion(Long id,int dispIndex) throws Exception;
 	
-	
-	/**
-	 * 设置题目的问题
-	 * @param question
-	 * @return
-	 * @throws Exception
-	 */
-	public Question updateTitleQuestion(Question question) throws Exception;
-	
-	/**
-	 * 插入题目
-	 * @param arg
-	 * @return
-	 * @throws Exception
-	 */
-	public Boolean createQuestion(Object[] arg) throws Exception;
-	
-	/**
-	 * 插入选项数据
-	 * @param arg
-	 * @return
-	 * @throws Exception
-	 */
-	public Boolean createOPtion(Object[] arg) throws Exception;
-	
-	
-
 	/**
 	 * 获取问卷所有数据
 	 * @param id 问卷的ID

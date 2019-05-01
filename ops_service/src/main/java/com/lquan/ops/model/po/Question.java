@@ -3,9 +3,9 @@ package com.lquan.ops.model.po;
 import java.util.Date;
 
 public class Question {
-    private Integer id;
+    private Integer ID;
 
-    private Integer templateid;
+    private Integer templateID;
 
     private Byte type;
 
@@ -13,68 +13,68 @@ public class Question {
 
     private String title;
 
-    private String imageurl;
+    private String imageUrl;
 
-    private String videourl;
+    private String videoUrl;
 
     private Boolean optional;
 
     private String help;
 
-    private Short layout;
+    private Integer layout;
 
-    private Short dispindex;
+    private Integer dispIndex;
 
-    private Short selectionmax;
+    private Integer selectionMax;
 
-    private Short selectionmin;
+    private Integer selectionMin;
 
-    private Boolean rowdisordered;
+    private Boolean rowDisordered;
 
-    private Boolean matrixpivot;
+    private Boolean matrixPivot;
 
-    private Boolean rowlastfixed;
+    private Boolean rowLastFixed;
 
-    private Boolean coldisordered;
+    private Boolean colDisordered;
 
-    private Boolean collastfixed;
+    private Boolean colLastFixed;
 
-    private Short columncount;
+    private Integer columnCount;
 
-    private Integer businesstype;
+    private Integer businessType;
 
-    private Byte scoretype;
+    private Byte scoreType;
 
-    private Boolean rowreverse;
+    private Boolean rowReverse;
 
-    private Boolean colreverse;
+    private Boolean colReverse;
 
-    private Short charttype;
+    private Integer chartType;
 
     private Boolean active;
 
-    private Date createdat;
+    private Date createdAt;
 
-    private String createdby;
+    private String createdBy;
 
-    private Date updatedat;
+    private Date updatedAt;
 
-    private String updatedby;
+    private String updatedBy;
 
-    public Integer getId() {
-        return id;
+    public Integer getID() {
+        return ID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
-    public Integer getTemplateid() {
-        return templateid;
+    public Integer getTemplateID() {
+        return templateID;
     }
 
-    public void setTemplateid(Integer templateid) {
-        this.templateid = templateid;
+    public void setTemplateID(Integer templateID) {
+        this.templateID = templateID;
     }
 
     public Byte getType() {
@@ -101,20 +101,20 @@ public class Question {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl == null ? null : imageurl.trim();
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl == null ? null : imageUrl.trim();
     }
 
-    public String getVideourl() {
-        return videourl;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public void setVideourl(String videourl) {
-        this.videourl = videourl == null ? null : videourl.trim();
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl == null ? null : videoUrl.trim();
     }
 
     public Boolean getOptional() {
@@ -133,124 +133,124 @@ public class Question {
         this.help = help == null ? null : help.trim();
     }
 
-    public Short getLayout() {
+    public Integer getLayout() {
         return layout;
     }
 
-    public void setLayout(Short layout) {
+    public void setLayout(Integer layout) {
         this.layout = layout;
     }
 
-    public Short getDispindex() {
-        return dispindex;
+    public Integer getDispIndex() {
+        return dispIndex;
     }
 
-    public void setDispindex(Short dispindex) {
-        this.dispindex = dispindex;
+    public void setDispIndex(Integer dispIndex) {
+        this.dispIndex = dispIndex;
     }
 
-    public Short getSelectionmax() {
-        return selectionmax;
+    public Integer getSelectionMax() {
+        return selectionMax;
     }
 
-    public void setSelectionmax(Short selectionmax) {
-        this.selectionmax = selectionmax;
+    public void setSelectionMax(Integer selectionMax) {
+        this.selectionMax = selectionMax;
     }
 
-    public Short getSelectionmin() {
-        return selectionmin;
+    public Integer getSelectionMin() {
+        return selectionMin;
     }
 
-    public void setSelectionmin(Short selectionmin) {
-        this.selectionmin = selectionmin;
+    public void setSelectionMin(Integer selectionMin) {
+        this.selectionMin = selectionMin;
     }
 
-    public Boolean getRowdisordered() {
-        return rowdisordered;
+    public Boolean getRowDisordered() {
+        return rowDisordered;
     }
 
-    public void setRowdisordered(Boolean rowdisordered) {
-        this.rowdisordered = rowdisordered;
+    public void setRowDisordered(Boolean rowDisordered) {
+        this.rowDisordered = rowDisordered;
     }
 
-    public Boolean getMatrixpivot() {
-        return matrixpivot;
+    public Boolean getMatrixPivot() {
+        return matrixPivot;
     }
 
-    public void setMatrixpivot(Boolean matrixpivot) {
-        this.matrixpivot = matrixpivot;
+    public void setMatrixPivot(Boolean matrixPivot) {
+        this.matrixPivot = matrixPivot;
     }
 
-    public Boolean getRowlastfixed() {
-        return rowlastfixed;
+    public Boolean getRowLastFixed() {
+        return rowLastFixed;
     }
 
-    public void setRowlastfixed(Boolean rowlastfixed) {
-        this.rowlastfixed = rowlastfixed;
+    public void setRowLastFixed(Boolean rowLastFixed) {
+        this.rowLastFixed = rowLastFixed;
     }
 
-    public Boolean getColdisordered() {
-        return coldisordered;
+    public Boolean getColDisordered() {
+        return colDisordered;
     }
 
-    public void setColdisordered(Boolean coldisordered) {
-        this.coldisordered = coldisordered;
+    public void setColDisordered(Boolean colDisordered) {
+        this.colDisordered = colDisordered;
     }
 
-    public Boolean getCollastfixed() {
-        return collastfixed;
+    public Boolean getColLastFixed() {
+        return colLastFixed;
     }
 
-    public void setCollastfixed(Boolean collastfixed) {
-        this.collastfixed = collastfixed;
+    public void setColLastFixed(Boolean colLastFixed) {
+        this.colLastFixed = colLastFixed;
     }
 
-    public Short getColumncount() {
-        return columncount;
+    public Integer getColumnCount() {
+        return columnCount;
     }
 
-    public void setColumncount(Short columncount) {
-        this.columncount = columncount;
+    public void setColumnCount(Integer columnCount) {
+        this.columnCount = columnCount;
     }
 
-    public Integer getBusinesstype() {
-        return businesstype;
+    public Integer getBusinessType() {
+        return businessType;
     }
 
-    public void setBusinesstype(Integer businesstype) {
-        this.businesstype = businesstype;
+    public void setBusinessType(Integer businessType) {
+        this.businessType = businessType;
     }
 
-    public Byte getScoretype() {
-        return scoretype;
+    public Byte getScoreType() {
+        return scoreType;
     }
 
-    public void setScoretype(Byte scoretype) {
-        this.scoretype = scoretype;
+    public void setScoreType(Byte scoreType) {
+        this.scoreType = scoreType;
     }
 
-    public Boolean getRowreverse() {
-        return rowreverse;
+    public Boolean getRowReverse() {
+        return rowReverse;
     }
 
-    public void setRowreverse(Boolean rowreverse) {
-        this.rowreverse = rowreverse;
+    public void setRowReverse(Boolean rowReverse) {
+        this.rowReverse = rowReverse;
     }
 
-    public Boolean getColreverse() {
-        return colreverse;
+    public Boolean getColReverse() {
+        return colReverse;
     }
 
-    public void setColreverse(Boolean colreverse) {
-        this.colreverse = colreverse;
+    public void setColReverse(Boolean colReverse) {
+        this.colReverse = colReverse;
     }
 
-    public Short getCharttype() {
-        return charttype;
+    public Integer getChartType() {
+        return chartType;
     }
 
-    public void setCharttype(Short charttype) {
-        this.charttype = charttype;
+    public void setChartType(Integer chartType) {
+        this.chartType = chartType;
     }
 
     public Boolean getActive() {
@@ -261,35 +261,35 @@ public class Question {
         this.active = active;
     }
 
-    public Date getCreatedat() {
-        return createdat;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedat(Date createdat) {
-        this.createdat = createdat;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getCreatedby() {
-        return createdby;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreatedby(String createdby) {
-        this.createdby = createdby == null ? null : createdby.trim();
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy == null ? null : createdBy.trim();
     }
 
-    public Date getUpdatedat() {
-        return updatedat;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdatedat(Date updatedat) {
-        this.updatedat = updatedat;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public String getUpdatedby() {
-        return updatedby;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public void setUpdatedby(String updatedby) {
-        this.updatedby = updatedby == null ? null : updatedby.trim();
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy == null ? null : updatedBy.trim();
     }
 }

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.ops.dao.QueOptionMapper">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.QueOption">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="QuestionID" jdbcType="INTEGER" property="questionID" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Title" jdbcType="VARCHAR" property="title" />
+    <result column="ImageUrl" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="VideoUrl" jdbcType="VARCHAR" property="videoUrl" />
+    <result column="Open" jdbcType="BIT" property="open" />
+    <result column="Help" jdbcType="VARCHAR" property="help" />
+    <result column="DispIndex" jdbcType="INTEGER" property="dispIndex" />
+    <result column="BlankType" jdbcType="INTEGER" property="blankType" />
+    <result column="BlankMax" jdbcType="INTEGER" property="blankMax" />
+    <result column="BlankMin" jdbcType="INTEGER" property="blankMin" />
+    <result column="BlankOptional" jdbcType="BIT" property="blankOptional" />
+    <result column="Value" jdbcType="INTEGER" property="value" />
+    <result column="Exclusive" jdbcType="BIT" property="exclusive" />
+    <result column="ThumbUrl" jdbcType="VARCHAR" property="thumbUrl" />
+    <result column="BlankRows" jdbcType="INTEGER" property="blankRows" />
+    <result column="BlankCols" jdbcType="INTEGER" property="blankCols" />
+    <result column="Orientation" jdbcType="INTEGER" property="orientation" />
+    <result column="ShowValue" jdbcType="BIT" property="showValue" />
+    <result column="ShowTip" jdbcType="BIT" property="showTip" />
+    <result column="ShowCancel" jdbcType="BIT" property="showCancel" />
+    <result column="SelectionMax" jdbcType="INTEGER" property="selectionMax" />
+    <result column="SelectionMin" jdbcType="INTEGER" property="selectionMin" />
+    <result column="Active" jdbcType="BIT" property="active" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="CreatedBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="UpdatedBy" jdbcType="VARCHAR" property="updatedBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, QuestionID, Code, Title, ImageUrl, VideoUrl, `Open`, Help, DispIndex, BlankType, 
+    BlankMax, BlankMin, BlankOptional, `Value`, `Exclusive`, ThumbUrl, BlankRows, BlankCols, 
+    Orientation, ShowValue, ShowTip, ShowCancel, SelectionMax, SelectionMin, Active, 
+    CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from queoption
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from queoption
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lquan.ops.model.po.QueOption">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into queoption (QuestionID, Code, Title, 
+      ImageUrl, VideoUrl, `Open`, 
+      Help, DispIndex, BlankType, 
+      BlankMax, BlankMin, BlankOptional, 
+      `Value`, `Exclusive`, ThumbUrl, 
+      BlankRows, BlankCols, Orientation, 
+      ShowValue, ShowTip, ShowCancel, 
+      SelectionMax, SelectionMin, Active, 
+      CreatedAt, CreatedBy, UpdatedAt, 
+      UpdatedBy)
+    values (#{questionID,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{imageUrl,jdbcType=VARCHAR}, #{videoUrl,jdbcType=VARCHAR}, #{open,jdbcType=BIT}, 
+      #{help,jdbcType=VARCHAR}, #{dispIndex,jdbcType=INTEGER}, #{blankType,jdbcType=INTEGER}, 
+      #{blankMax,jdbcType=INTEGER}, #{blankMin,jdbcType=INTEGER}, #{blankOptional,jdbcType=BIT}, 
+      #{value,jdbcType=INTEGER}, #{exclusive,jdbcType=BIT}, #{thumbUrl,jdbcType=VARCHAR}, 
+      #{blankRows,jdbcType=INTEGER}, #{blankCols,jdbcType=INTEGER}, #{orientation,jdbcType=INTEGER}, 
+      #{showValue,jdbcType=BIT}, #{showTip,jdbcType=BIT}, #{showCancel,jdbcType=BIT}, 
+      #{selectionMax,jdbcType=INTEGER}, #{selectionMin,jdbcType=INTEGER}, #{active,jdbcType=BIT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.QueOption">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into queoption
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="questionID != null">
+        QuestionID,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="imageUrl != null">
+        ImageUrl,
+      </if>
+      <if test="videoUrl != null">
+        VideoUrl,
+      </if>
+      <if test="open != null">
+        `Open`,
+      </if>
+      <if test="help != null">
+        Help,
+      </if>
+      <if test="dispIndex != null">
+        DispIndex,
+      </if>
+      <if test="blankType != null">
+        BlankType,
+      </if>
+      <if test="blankMax != null">
+        BlankMax,
+      </if>
+      <if test="blankMin != null">
+        BlankMin,
+      </if>
+      <if test="blankOptional != null">
+        BlankOptional,
+      </if>
+      <if test="value != null">
+        `Value`,
+      </if>
+      <if test="exclusive != null">
+        `Exclusive`,
+      </if>
+      <if test="thumbUrl != null">
+        ThumbUrl,
+      </if>
+      <if test="blankRows != null">
+        BlankRows,
+      </if>
+      <if test="blankCols != null">
+        BlankCols,
+      </if>
+      <if test="orientation != null">
+        Orientation,
+      </if>
+      <if test="showValue != null">
+        ShowValue,
+      </if>
+      <if test="showTip != null">
+        ShowTip,
+      </if>
+      <if test="showCancel != null">
+        ShowCancel,
+      </if>
+      <if test="selectionMax != null">
+        SelectionMax,
+      </if>
+      <if test="selectionMin != null">
+        SelectionMin,
+      </if>
+      <if test="active != null">
+        Active,
+      </if>
+      <if test="createdAt != null">
+        CreatedAt,
+      </if>
+      <if test="createdBy != null">
+        CreatedBy,
+      </if>
+      <if test="updatedAt != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedBy != null">
+        UpdatedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="questionID != null">
+        #{questionID,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null">
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null">
+        #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="open != null">
+        #{open,jdbcType=BIT},
+      </if>
+      <if test="help != null">
+        #{help,jdbcType=VARCHAR},
+      </if>
+      <if test="dispIndex != null">
+        #{dispIndex,jdbcType=INTEGER},
+      </if>
+      <if test="blankType != null">
+        #{blankType,jdbcType=INTEGER},
+      </if>
+      <if test="blankMax != null">
+        #{blankMax,jdbcType=INTEGER},
+      </if>
+      <if test="blankMin != null">
+        #{blankMin,jdbcType=INTEGER},
+      </if>
+      <if test="blankOptional != null">
+        #{blankOptional,jdbcType=BIT},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=INTEGER},
+      </if>
+      <if test="exclusive != null">
+        #{exclusive,jdbcType=BIT},
+      </if>
+      <if test="thumbUrl != null">
+        #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="blankRows != null">
+        #{blankRows,jdbcType=INTEGER},
+      </if>
+      <if test="blankCols != null">
+        #{blankCols,jdbcType=INTEGER},
+      </if>
+      <if test="orientation != null">
+        #{orientation,jdbcType=INTEGER},
+      </if>
+      <if test="showValue != null">
+        #{showValue,jdbcType=BIT},
+      </if>
+      <if test="showTip != null">
+        #{showTip,jdbcType=BIT},
+      </if>
+      <if test="showCancel != null">
+        #{showCancel,jdbcType=BIT},
+      </if>
+      <if test="selectionMax != null">
+        #{selectionMax,jdbcType=INTEGER},
+      </if>
+      <if test="selectionMin != null">
+        #{selectionMin,jdbcType=INTEGER},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.QueOption">
+    update queoption
+    <set>
+      <if test="questionID != null">
+        QuestionID = #{questionID,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null">
+        ImageUrl = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null">
+        VideoUrl = #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="open != null">
+        `Open` = #{open,jdbcType=BIT},
+      </if>
+      <if test="help != null">
+        Help = #{help,jdbcType=VARCHAR},
+      </if>
+      <if test="dispIndex != null">
+        DispIndex = #{dispIndex,jdbcType=INTEGER},
+      </if>
+      <if test="blankType != null">
+        BlankType = #{blankType,jdbcType=INTEGER},
+      </if>
+      <if test="blankMax != null">
+        BlankMax = #{blankMax,jdbcType=INTEGER},
+      </if>
+      <if test="blankMin != null">
+        BlankMin = #{blankMin,jdbcType=INTEGER},
+      </if>
+      <if test="blankOptional != null">
+        BlankOptional = #{blankOptional,jdbcType=BIT},
+      </if>
+      <if test="value != null">
+        `Value` = #{value,jdbcType=INTEGER},
+      </if>
+      <if test="exclusive != null">
+        `Exclusive` = #{exclusive,jdbcType=BIT},
+      </if>
+      <if test="thumbUrl != null">
+        ThumbUrl = #{thumbUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="blankRows != null">
+        BlankRows = #{blankRows,jdbcType=INTEGER},
+      </if>
+      <if test="blankCols != null">
+        BlankCols = #{blankCols,jdbcType=INTEGER},
+      </if>
+      <if test="orientation != null">
+        Orientation = #{orientation,jdbcType=INTEGER},
+      </if>
+      <if test="showValue != null">
+        ShowValue = #{showValue,jdbcType=BIT},
+      </if>
+      <if test="showTip != null">
+        ShowTip = #{showTip,jdbcType=BIT},
+      </if>
+      <if test="showCancel != null">
+        ShowCancel = #{showCancel,jdbcType=BIT},
+      </if>
+      <if test="selectionMax != null">
+        SelectionMax = #{selectionMax,jdbcType=INTEGER},
+      </if>
+      <if test="selectionMin != null">
+        SelectionMin = #{selectionMin,jdbcType=INTEGER},
+      </if>
+      <if test="active != null">
+        Active = #{active,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        CreatedBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UpdatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.QueOption">
+    update queoption
+    set QuestionID = #{questionID,jdbcType=INTEGER},
+      Code = #{code,jdbcType=VARCHAR},
+      Title = #{title,jdbcType=VARCHAR},
+      ImageUrl = #{imageUrl,jdbcType=VARCHAR},
+      VideoUrl = #{videoUrl,jdbcType=VARCHAR},
+      `Open` = #{open,jdbcType=BIT},
+      Help = #{help,jdbcType=VARCHAR},
+      DispIndex = #{dispIndex,jdbcType=INTEGER},
+      BlankType = #{blankType,jdbcType=INTEGER},
+      BlankMax = #{blankMax,jdbcType=INTEGER},
+      BlankMin = #{blankMin,jdbcType=INTEGER},
+      BlankOptional = #{blankOptional,jdbcType=BIT},
+      `Value` = #{value,jdbcType=INTEGER},
+      `Exclusive` = #{exclusive,jdbcType=BIT},
+      ThumbUrl = #{thumbUrl,jdbcType=VARCHAR},
+      BlankRows = #{blankRows,jdbcType=INTEGER},
+      BlankCols = #{blankCols,jdbcType=INTEGER},
+      Orientation = #{orientation,jdbcType=INTEGER},
+      ShowValue = #{showValue,jdbcType=BIT},
+      ShowTip = #{showTip,jdbcType=BIT},
+      ShowCancel = #{showCancel,jdbcType=BIT},
+      SelectionMax = #{selectionMax,jdbcType=INTEGER},
+      SelectionMin = #{selectionMin,jdbcType=INTEGER},
+      Active = #{active,jdbcType=BIT},
+      CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
+      CreatedBy = #{createdBy,jdbcType=VARCHAR},
+      UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
+      UpdatedBy = #{updatedBy,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  
+ <!-- 根据题目查询选项 -->
+  <select id="selectQueOptionByQuestionID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from queoption
+    where QuestionID = #{questionID,jdbcType=INTEGER}
+    
+    order by DispIndex asc
+  </select>
+</mapper>

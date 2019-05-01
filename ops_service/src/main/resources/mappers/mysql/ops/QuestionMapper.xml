@@ -2,35 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lquan.ops.dao.QuestionMapper">
   <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Question">
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="TemplateID" jdbcType="INTEGER" property="templateid" />
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="TemplateID" jdbcType="INTEGER" property="templateID" />
     <result column="Type" jdbcType="TINYINT" property="type" />
     <result column="Number" jdbcType="VARCHAR" property="number" />
     <result column="Title" jdbcType="VARCHAR" property="title" />
-    <result column="ImageUrl" jdbcType="VARCHAR" property="imageurl" />
-    <result column="VideoUrl" jdbcType="VARCHAR" property="videourl" />
+    <result column="ImageUrl" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="VideoUrl" jdbcType="VARCHAR" property="videoUrl" />
     <result column="Optional" jdbcType="BIT" property="optional" />
     <result column="Help" jdbcType="VARCHAR" property="help" />
-    <result column="Layout" jdbcType="SMALLINT" property="layout" />
-    <result column="DispIndex" jdbcType="SMALLINT" property="dispindex" />
-    <result column="SelectionMax" jdbcType="SMALLINT" property="selectionmax" />
-    <result column="SelectionMin" jdbcType="SMALLINT" property="selectionmin" />
-    <result column="RowDisordered" jdbcType="BIT" property="rowdisordered" />
-    <result column="MatrixPivot" jdbcType="BIT" property="matrixpivot" />
-    <result column="RowLastFixed" jdbcType="BIT" property="rowlastfixed" />
-    <result column="ColDisordered" jdbcType="BIT" property="coldisordered" />
-    <result column="ColLastFixed" jdbcType="BIT" property="collastfixed" />
-    <result column="ColumnCount" jdbcType="SMALLINT" property="columncount" />
-    <result column="BusinessType" jdbcType="INTEGER" property="businesstype" />
-    <result column="ScoreType" jdbcType="TINYINT" property="scoretype" />
-    <result column="RowReverse" jdbcType="BIT" property="rowreverse" />
-    <result column="ColReverse" jdbcType="BIT" property="colreverse" />
-    <result column="ChartType" jdbcType="SMALLINT" property="charttype" />
+    <result column="Layout" jdbcType="INTEGER" property="layout" />
+    <result column="DispIndex" jdbcType="INTEGER" property="dispIndex" />
+    <result column="SelectionMax" jdbcType="INTEGER" property="selectionMax" />
+    <result column="SelectionMin" jdbcType="INTEGER" property="selectionMin" />
+    <result column="RowDisordered" jdbcType="BIT" property="rowDisordered" />
+    <result column="MatrixPivot" jdbcType="BIT" property="matrixPivot" />
+    <result column="RowLastFixed" jdbcType="BIT" property="rowLastFixed" />
+    <result column="ColDisordered" jdbcType="BIT" property="colDisordered" />
+    <result column="ColLastFixed" jdbcType="BIT" property="colLastFixed" />
+    <result column="ColumnCount" jdbcType="INTEGER" property="columnCount" />
+    <result column="BusinessType" jdbcType="INTEGER" property="businessType" />
+    <result column="ScoreType" jdbcType="TINYINT" property="scoreType" />
+    <result column="RowReverse" jdbcType="BIT" property="rowReverse" />
+    <result column="ColReverse" jdbcType="BIT" property="colReverse" />
+    <result column="ChartType" jdbcType="INTEGER" property="chartType" />
     <result column="Active" jdbcType="BIT" property="active" />
-    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
-    <result column="CreatedBy" jdbcType="VARCHAR" property="createdby" />
-    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
-    <result column="UpdatedBy" jdbcType="VARCHAR" property="updatedby" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="CreatedBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="UpdatedBy" jdbcType="VARCHAR" property="updatedBy" />
   </resultMap>
   <sql id="Base_Column_List">
     ID, TemplateID, `Type`, `Number`, Title, ImageUrl, VideoUrl, Optional, Help, Layout, 
@@ -42,41 +42,44 @@
     select 
     <include refid="Base_Column_List" />
     from question
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from question
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.lquan.ops.model.po.Question">
-    insert into question (ID, TemplateID, `Type`, 
-      `Number`, Title, ImageUrl, 
-      VideoUrl, Optional, Help, 
-      Layout, DispIndex, SelectionMax, 
-      SelectionMin, RowDisordered, MatrixPivot, 
-      RowLastFixed, ColDisordered, ColLastFixed, 
-      ColumnCount, BusinessType, ScoreType, 
-      RowReverse, ColReverse, ChartType, 
-      Active, CreatedAt, CreatedBy, 
-      UpdatedAt, UpdatedBy)
-    values (#{id,jdbcType=INTEGER}, #{templateid,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, 
-      #{number,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{imageurl,jdbcType=VARCHAR}, 
-      #{videourl,jdbcType=VARCHAR}, #{optional,jdbcType=BIT}, #{help,jdbcType=VARCHAR}, 
-      #{layout,jdbcType=SMALLINT}, #{dispindex,jdbcType=SMALLINT}, #{selectionmax,jdbcType=SMALLINT}, 
-      #{selectionmin,jdbcType=SMALLINT}, #{rowdisordered,jdbcType=BIT}, #{matrixpivot,jdbcType=BIT}, 
-      #{rowlastfixed,jdbcType=BIT}, #{coldisordered,jdbcType=BIT}, #{collastfixed,jdbcType=BIT}, 
-      #{columncount,jdbcType=SMALLINT}, #{businesstype,jdbcType=INTEGER}, #{scoretype,jdbcType=TINYINT}, 
-      #{rowreverse,jdbcType=BIT}, #{colreverse,jdbcType=BIT}, #{charttype,jdbcType=SMALLINT}, 
-      #{active,jdbcType=BIT}, #{createdat,jdbcType=TIMESTAMP}, #{createdby,jdbcType=VARCHAR}, 
-      #{updatedat,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR})
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into question (TemplateID, `Type`, `Number`, 
+      Title, ImageUrl, VideoUrl, 
+      Optional, Help, Layout, 
+      DispIndex, SelectionMax, SelectionMin, 
+      RowDisordered, MatrixPivot, RowLastFixed, 
+      ColDisordered, ColLastFixed, ColumnCount, 
+      BusinessType, ScoreType, RowReverse, 
+      ColReverse, ChartType, Active, 
+      CreatedAt, CreatedBy, UpdatedAt, 
+      UpdatedBy)
+    values (#{templateID,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{number,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR}, #{videoUrl,jdbcType=VARCHAR}, 
+      #{optional,jdbcType=BIT}, #{help,jdbcType=VARCHAR}, #{layout,jdbcType=INTEGER}, 
+      #{dispIndex,jdbcType=INTEGER}, #{selectionMax,jdbcType=INTEGER}, #{selectionMin,jdbcType=INTEGER}, 
+      #{rowDisordered,jdbcType=BIT}, #{matrixPivot,jdbcType=BIT}, #{rowLastFixed,jdbcType=BIT}, 
+      #{colDisordered,jdbcType=BIT}, #{colLastFixed,jdbcType=BIT}, #{columnCount,jdbcType=INTEGER}, 
+      #{businessType,jdbcType=INTEGER}, #{scoreType,jdbcType=TINYINT}, #{rowReverse,jdbcType=BIT}, 
+      #{colReverse,jdbcType=BIT}, #{chartType,jdbcType=INTEGER}, #{active,jdbcType=BIT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Question">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into question
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="templateid != null">
+      <if test="templateID != null">
         TemplateID,
       </if>
       <if test="type != null">
@@ -88,10 +91,10 @@
       <if test="title != null">
         Title,
       </if>
-      <if test="imageurl != null">
+      <if test="imageUrl != null">
         ImageUrl,
       </if>
-      <if test="videourl != null">
+      <if test="videoUrl != null">
         VideoUrl,
       </if>
       <if test="optional != null">
@@ -103,70 +106,67 @@
       <if test="layout != null">
         Layout,
       </if>
-      <if test="dispindex != null">
+      <if test="dispIndex != null">
         DispIndex,
       </if>
-      <if test="selectionmax != null">
+      <if test="selectionMax != null">
         SelectionMax,
       </if>
-      <if test="selectionmin != null">
+      <if test="selectionMin != null">
         SelectionMin,
       </if>
-      <if test="rowdisordered != null">
+      <if test="rowDisordered != null">
         RowDisordered,
       </if>
-      <if test="matrixpivot != null">
+      <if test="matrixPivot != null">
         MatrixPivot,
       </if>
-      <if test="rowlastfixed != null">
+      <if test="rowLastFixed != null">
         RowLastFixed,
       </if>
-      <if test="coldisordered != null">
+      <if test="colDisordered != null">
         ColDisordered,
       </if>
-      <if test="collastfixed != null">
+      <if test="colLastFixed != null">
         ColLastFixed,
       </if>
-      <if test="columncount != null">
+      <if test="columnCount != null">
         ColumnCount,
       </if>
-      <if test="businesstype != null">
+      <if test="businessType != null">
         BusinessType,
       </if>
-      <if test="scoretype != null">
+      <if test="scoreType != null">
         ScoreType,
       </if>
-      <if test="rowreverse != null">
+      <if test="rowReverse != null">
         RowReverse,
       </if>
-      <if test="colreverse != null">
+      <if test="colReverse != null">
         ColReverse,
       </if>
-      <if test="charttype != null">
+      <if test="chartType != null">
         ChartType,
       </if>
       <if test="active != null">
         Active,
       </if>
-      <if test="createdat != null">
+      <if test="createdAt != null">
         CreatedAt,
       </if>
-      <if test="createdby != null">
+      <if test="createdBy != null">
         CreatedBy,
       </if>
-      <if test="updatedat != null">
+      <if test="updatedAt != null">
         UpdatedAt,
       </if>
-      <if test="updatedby != null">
+      <if test="updatedBy != null">
         UpdatedBy,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="templateid != null">
-        #{templateid,jdbcType=INTEGER},
+      <if test="templateID != null">
+        #{templateID,jdbcType=INTEGER},
       </if>
       <if test="type != null">
         #{type,jdbcType=TINYINT},
@@ -177,11 +177,11 @@
       <if test="title != null">
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="imageurl != null">
-        #{imageurl,jdbcType=VARCHAR},
+      <if test="imageUrl != null">
+        #{imageUrl,jdbcType=VARCHAR},
       </if>
-      <if test="videourl != null">
-        #{videourl,jdbcType=VARCHAR},
+      <if test="videoUrl != null">
+        #{videoUrl,jdbcType=VARCHAR},
       </if>
       <if test="optional != null">
         #{optional,jdbcType=BIT},
@@ -190,72 +190,72 @@
         #{help,jdbcType=VARCHAR},
       </if>
       <if test="layout != null">
-        #{layout,jdbcType=SMALLINT},
+        #{layout,jdbcType=INTEGER},
       </if>
-      <if test="dispindex != null">
-        #{dispindex,jdbcType=SMALLINT},
+      <if test="dispIndex != null">
+        #{dispIndex,jdbcType=INTEGER},
       </if>
-      <if test="selectionmax != null">
-        #{selectionmax,jdbcType=SMALLINT},
+      <if test="selectionMax != null">
+        #{selectionMax,jdbcType=INTEGER},
       </if>
-      <if test="selectionmin != null">
-        #{selectionmin,jdbcType=SMALLINT},
+      <if test="selectionMin != null">
+        #{selectionMin,jdbcType=INTEGER},
       </if>
-      <if test="rowdisordered != null">
-        #{rowdisordered,jdbcType=BIT},
+      <if test="rowDisordered != null">
+        #{rowDisordered,jdbcType=BIT},
       </if>
-      <if test="matrixpivot != null">
-        #{matrixpivot,jdbcType=BIT},
+      <if test="matrixPivot != null">
+        #{matrixPivot,jdbcType=BIT},
       </if>
-      <if test="rowlastfixed != null">
-        #{rowlastfixed,jdbcType=BIT},
+      <if test="rowLastFixed != null">
+        #{rowLastFixed,jdbcType=BIT},
       </if>
-      <if test="coldisordered != null">
-        #{coldisordered,jdbcType=BIT},
+      <if test="colDisordered != null">
+        #{colDisordered,jdbcType=BIT},
       </if>
-      <if test="collastfixed != null">
-        #{collastfixed,jdbcType=BIT},
+      <if test="colLastFixed != null">
+        #{colLastFixed,jdbcType=BIT},
       </if>
-      <if test="columncount != null">
-        #{columncount,jdbcType=SMALLINT},
+      <if test="columnCount != null">
+        #{columnCount,jdbcType=INTEGER},
       </if>
-      <if test="businesstype != null">
-        #{businesstype,jdbcType=INTEGER},
+      <if test="businessType != null">
+        #{businessType,jdbcType=INTEGER},
       </if>
-      <if test="scoretype != null">
-        #{scoretype,jdbcType=TINYINT},
+      <if test="scoreType != null">
+        #{scoreType,jdbcType=TINYINT},
       </if>
-      <if test="rowreverse != null">
-        #{rowreverse,jdbcType=BIT},
+      <if test="rowReverse != null">
+        #{rowReverse,jdbcType=BIT},
       </if>
-      <if test="colreverse != null">
-        #{colreverse,jdbcType=BIT},
+      <if test="colReverse != null">
+        #{colReverse,jdbcType=BIT},
       </if>
-      <if test="charttype != null">
-        #{charttype,jdbcType=SMALLINT},
+      <if test="chartType != null">
+        #{chartType,jdbcType=INTEGER},
       </if>
       <if test="active != null">
         #{active,jdbcType=BIT},
       </if>
-      <if test="createdat != null">
-        #{createdat,jdbcType=TIMESTAMP},
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
       </if>
-      <if test="createdby != null">
-        #{createdby,jdbcType=VARCHAR},
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
       </if>
-      <if test="updatedat != null">
-        #{updatedat,jdbcType=TIMESTAMP},
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
       </if>
-      <if test="updatedby != null">
-        #{updatedby,jdbcType=VARCHAR},
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Question">
     update question
     <set>
-      <if test="templateid != null">
-        TemplateID = #{templateid,jdbcType=INTEGER},
+      <if test="templateID != null">
+        TemplateID = #{templateID,jdbcType=INTEGER},
       </if>
       <if test="type != null">
         `Type` = #{type,jdbcType=TINYINT},
@@ -266,11 +266,11 @@
       <if test="title != null">
         Title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="imageurl != null">
-        ImageUrl = #{imageurl,jdbcType=VARCHAR},
+      <if test="imageUrl != null">
+        ImageUrl = #{imageUrl,jdbcType=VARCHAR},
       </if>
-      <if test="videourl != null">
-        VideoUrl = #{videourl,jdbcType=VARCHAR},
+      <if test="videoUrl != null">
+        VideoUrl = #{videoUrl,jdbcType=VARCHAR},
       </if>
       <if test="optional != null">
         Optional = #{optional,jdbcType=BIT},
@@ -279,98 +279,109 @@
         Help = #{help,jdbcType=VARCHAR},
       </if>
       <if test="layout != null">
-        Layout = #{layout,jdbcType=SMALLINT},
+        Layout = #{layout,jdbcType=INTEGER},
       </if>
-      <if test="dispindex != null">
-        DispIndex = #{dispindex,jdbcType=SMALLINT},
+      <if test="dispIndex != null">
+        DispIndex = #{dispIndex,jdbcType=INTEGER},
       </if>
-      <if test="selectionmax != null">
-        SelectionMax = #{selectionmax,jdbcType=SMALLINT},
+      <if test="selectionMax != null">
+        SelectionMax = #{selectionMax,jdbcType=INTEGER},
       </if>
-      <if test="selectionmin != null">
-        SelectionMin = #{selectionmin,jdbcType=SMALLINT},
+      <if test="selectionMin != null">
+        SelectionMin = #{selectionMin,jdbcType=INTEGER},
       </if>
-      <if test="rowdisordered != null">
-        RowDisordered = #{rowdisordered,jdbcType=BIT},
+      <if test="rowDisordered != null">
+        RowDisordered = #{rowDisordered,jdbcType=BIT},
       </if>
-      <if test="matrixpivot != null">
-        MatrixPivot = #{matrixpivot,jdbcType=BIT},
+      <if test="matrixPivot != null">
+        MatrixPivot = #{matrixPivot,jdbcType=BIT},
       </if>
-      <if test="rowlastfixed != null">
-        RowLastFixed = #{rowlastfixed,jdbcType=BIT},
+      <if test="rowLastFixed != null">
+        RowLastFixed = #{rowLastFixed,jdbcType=BIT},
       </if>
-      <if test="coldisordered != null">
-        ColDisordered = #{coldisordered,jdbcType=BIT},
+      <if test="colDisordered != null">
+        ColDisordered = #{colDisordered,jdbcType=BIT},
       </if>
-      <if test="collastfixed != null">
-        ColLastFixed = #{collastfixed,jdbcType=BIT},
+      <if test="colLastFixed != null">
+        ColLastFixed = #{colLastFixed,jdbcType=BIT},
       </if>
-      <if test="columncount != null">
-        ColumnCount = #{columncount,jdbcType=SMALLINT},
+      <if test="columnCount != null">
+        ColumnCount = #{columnCount,jdbcType=INTEGER},
       </if>
-      <if test="businesstype != null">
-        BusinessType = #{businesstype,jdbcType=INTEGER},
+      <if test="businessType != null">
+        BusinessType = #{businessType,jdbcType=INTEGER},
       </if>
-      <if test="scoretype != null">
-        ScoreType = #{scoretype,jdbcType=TINYINT},
+      <if test="scoreType != null">
+        ScoreType = #{scoreType,jdbcType=TINYINT},
       </if>
-      <if test="rowreverse != null">
-        RowReverse = #{rowreverse,jdbcType=BIT},
+      <if test="rowReverse != null">
+        RowReverse = #{rowReverse,jdbcType=BIT},
       </if>
-      <if test="colreverse != null">
-        ColReverse = #{colreverse,jdbcType=BIT},
+      <if test="colReverse != null">
+        ColReverse = #{colReverse,jdbcType=BIT},
       </if>
-      <if test="charttype != null">
-        ChartType = #{charttype,jdbcType=SMALLINT},
+      <if test="chartType != null">
+        ChartType = #{chartType,jdbcType=INTEGER},
       </if>
       <if test="active != null">
         Active = #{active,jdbcType=BIT},
       </if>
-      <if test="createdat != null">
-        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      <if test="createdAt != null">
+        CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
       </if>
-      <if test="createdby != null">
-        CreatedBy = #{createdby,jdbcType=VARCHAR},
+      <if test="createdBy != null">
+        CreatedBy = #{createdBy,jdbcType=VARCHAR},
       </if>
-      <if test="updatedat != null">
-        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      <if test="updatedAt != null">
+        UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
       </if>
-      <if test="updatedby != null">
-        UpdatedBy = #{updatedby,jdbcType=VARCHAR},
+      <if test="updatedBy != null">
+        UpdatedBy = #{updatedBy,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Question">
     update question
-    set TemplateID = #{templateid,jdbcType=INTEGER},
+    set TemplateID = #{templateID,jdbcType=INTEGER},
       `Type` = #{type,jdbcType=TINYINT},
       `Number` = #{number,jdbcType=VARCHAR},
       Title = #{title,jdbcType=VARCHAR},
-      ImageUrl = #{imageurl,jdbcType=VARCHAR},
-      VideoUrl = #{videourl,jdbcType=VARCHAR},
+      ImageUrl = #{imageUrl,jdbcType=VARCHAR},
+      VideoUrl = #{videoUrl,jdbcType=VARCHAR},
       Optional = #{optional,jdbcType=BIT},
       Help = #{help,jdbcType=VARCHAR},
-      Layout = #{layout,jdbcType=SMALLINT},
-      DispIndex = #{dispindex,jdbcType=SMALLINT},
-      SelectionMax = #{selectionmax,jdbcType=SMALLINT},
-      SelectionMin = #{selectionmin,jdbcType=SMALLINT},
-      RowDisordered = #{rowdisordered,jdbcType=BIT},
-      MatrixPivot = #{matrixpivot,jdbcType=BIT},
-      RowLastFixed = #{rowlastfixed,jdbcType=BIT},
-      ColDisordered = #{coldisordered,jdbcType=BIT},
-      ColLastFixed = #{collastfixed,jdbcType=BIT},
-      ColumnCount = #{columncount,jdbcType=SMALLINT},
-      BusinessType = #{businesstype,jdbcType=INTEGER},
-      ScoreType = #{scoretype,jdbcType=TINYINT},
-      RowReverse = #{rowreverse,jdbcType=BIT},
-      ColReverse = #{colreverse,jdbcType=BIT},
-      ChartType = #{charttype,jdbcType=SMALLINT},
+      Layout = #{layout,jdbcType=INTEGER},
+      DispIndex = #{dispIndex,jdbcType=INTEGER},
+      SelectionMax = #{selectionMax,jdbcType=INTEGER},
+      SelectionMin = #{selectionMin,jdbcType=INTEGER},
+      RowDisordered = #{rowDisordered,jdbcType=BIT},
+      MatrixPivot = #{matrixPivot,jdbcType=BIT},
+      RowLastFixed = #{rowLastFixed,jdbcType=BIT},
+      ColDisordered = #{colDisordered,jdbcType=BIT},
+      ColLastFixed = #{colLastFixed,jdbcType=BIT},
+      ColumnCount = #{columnCount,jdbcType=INTEGER},
+      BusinessType = #{businessType,jdbcType=INTEGER},
+      ScoreType = #{scoreType,jdbcType=TINYINT},
+      RowReverse = #{rowReverse,jdbcType=BIT},
+      ColReverse = #{colReverse,jdbcType=BIT},
+      ChartType = #{chartType,jdbcType=INTEGER},
       Active = #{active,jdbcType=BIT},
-      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
-      CreatedBy = #{createdby,jdbcType=VARCHAR},
-      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
-      UpdatedBy = #{updatedby,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=INTEGER}
+      CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
+      CreatedBy = #{createdBy,jdbcType=VARCHAR},
+      UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
+      UpdatedBy = #{updatedBy,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
   </update>
+  
+  
+  <!-- 查询问卷的题目 -->
+   <select id="searchQuestionListByTemplateID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from question
+    where TemplateID = #{templateID,jdbcType=INTEGER}
+    
+    order by DispIndex asc
+  </select>
 </mapper>

@@ -3,78 +3,78 @@ package com.lquan.ops.model.po;
 import java.util.Date;
 
 public class QueOption {
-    private Integer id;
+    private Integer ID;
 
-    private Integer questionid;
+    private Integer questionID;
 
     private String code;
 
     private String title;
 
-    private String imageurl;
+    private String imageUrl;
 
-    private String videourl;
+    private String videoUrl;
 
     private Boolean open;
 
     private String help;
 
-    private Short dispindex;
+    private Integer dispIndex;
 
-    private Short blanktype;
+    private Integer blankType;
 
-    private Short blankmax;
+    private Integer blankMax;
 
-    private Short blankmin;
+    private Integer blankMin;
 
-    private Boolean blankoptional;
+    private Boolean blankOptional;
 
-    private Short value;
+    private Integer value;
 
     private Boolean exclusive;
 
-    private String thumburl;
+    private String thumbUrl;
 
-    private Short blankrows;
+    private Integer blankRows;
 
-    private Short blankcols;
+    private Integer blankCols;
 
-    private Short orientation;
+    private Integer orientation;
 
-    private Short showvalue;
+    private Boolean showValue;
 
-    private Short showtip;
+    private Boolean showTip;
 
-    private Short showcancel;
+    private Boolean showCancel;
 
-    private Short selectionmax;
+    private Integer selectionMax;
 
-    private Short selectionmin;
+    private Integer selectionMin;
 
     private Boolean active;
 
-    private Date createdat;
+    private Date createdAt;
 
-    private String createdby;
+    private String createdBy;
 
-    private Date updatedat;
+    private Date updatedAt;
 
-    private String updatedby;
+    private String updatedBy;
 
-    public Integer getId() {
-        return id;
+    public Integer getID() {
+        return ID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
-    public Integer getQuestionid() {
-        return questionid;
+    public Integer getQuestionID() {
+        return questionID;
     }
 
-    public void setQuestionid(Integer questionid) {
-        this.questionid = questionid;
+    public void setQuestionID(Integer questionID) {
+        this.questionID = questionID;
     }
 
     public String getCode() {
@@ -93,20 +93,20 @@ public class QueOption {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl == null ? null : imageurl.trim();
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl == null ? null : imageUrl.trim();
     }
 
-    public String getVideourl() {
-        return videourl;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public void setVideourl(String videourl) {
-        this.videourl = videourl == null ? null : videourl.trim();
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl == null ? null : videoUrl.trim();
     }
 
     public Boolean getOpen() {
@@ -125,51 +125,51 @@ public class QueOption {
         this.help = help == null ? null : help.trim();
     }
 
-    public Short getDispindex() {
-        return dispindex;
+    public Integer getDispIndex() {
+        return dispIndex;
     }
 
-    public void setDispindex(Short dispindex) {
-        this.dispindex = dispindex;
+    public void setDispIndex(Integer dispIndex) {
+        this.dispIndex = dispIndex;
     }
 
-    public Short getBlanktype() {
-        return blanktype;
+    public Integer getBlankType() {
+        return blankType;
     }
 
-    public void setBlanktype(Short blanktype) {
-        this.blanktype = blanktype;
+    public void setBlankType(Integer blankType) {
+        this.blankType = blankType;
     }
 
-    public Short getBlankmax() {
-        return blankmax;
+    public Integer getBlankMax() {
+        return blankMax;
     }
 
-    public void setBlankmax(Short blankmax) {
-        this.blankmax = blankmax;
+    public void setBlankMax(Integer blankMax) {
+        this.blankMax = blankMax;
     }
 
-    public Short getBlankmin() {
-        return blankmin;
+    public Integer getBlankMin() {
+        return blankMin;
     }
 
-    public void setBlankmin(Short blankmin) {
-        this.blankmin = blankmin;
+    public void setBlankMin(Integer blankMin) {
+        this.blankMin = blankMin;
     }
 
-    public Boolean getBlankoptional() {
-        return blankoptional;
+    public Boolean getBlankOptional() {
+        return blankOptional;
     }
 
-    public void setBlankoptional(Boolean blankoptional) {
-        this.blankoptional = blankoptional;
+    public void setBlankOptional(Boolean blankOptional) {
+        this.blankOptional = blankOptional;
     }
 
-    public Short getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(Short value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
@@ -181,76 +181,76 @@ public class QueOption {
         this.exclusive = exclusive;
     }
 
-    public String getThumburl() {
-        return thumburl;
+    public String getThumbUrl() {
+        return thumbUrl;
     }
 
-    public void setThumburl(String thumburl) {
-        this.thumburl = thumburl == null ? null : thumburl.trim();
+    public void setThumbUrl(String thumbUrl) {
+        this.thumbUrl = thumbUrl == null ? null : thumbUrl.trim();
     }
 
-    public Short getBlankrows() {
-        return blankrows;
+    public Integer getBlankRows() {
+        return blankRows;
     }
 
-    public void setBlankrows(Short blankrows) {
-        this.blankrows = blankrows;
+    public void setBlankRows(Integer blankRows) {
+        this.blankRows = blankRows;
     }
 
-    public Short getBlankcols() {
-        return blankcols;
+    public Integer getBlankCols() {
+        return blankCols;
     }
 
-    public void setBlankcols(Short blankcols) {
-        this.blankcols = blankcols;
+    public void setBlankCols(Integer blankCols) {
+        this.blankCols = blankCols;
     }
 
-    public Short getOrientation() {
+    public Integer getOrientation() {
         return orientation;
     }
 
-    public void setOrientation(Short orientation) {
+    public void setOrientation(Integer orientation) {
         this.orientation = orientation;
     }
 
-    public Short getShowvalue() {
-        return showvalue;
+    public Boolean getShowValue() {
+        return showValue;
     }
 
-    public void setShowvalue(Short showvalue) {
-        this.showvalue = showvalue;
+    public void setShowValue(Boolean showValue) {
+        this.showValue = showValue;
     }
 
-    public Short getShowtip() {
-        return showtip;
+    public Boolean getShowTip() {
+        return showTip;
     }
 
-    public void setShowtip(Short showtip) {
-        this.showtip = showtip;
+    public void setShowTip(Boolean showTip) {
+        this.showTip = showTip;
     }
 
-    public Short getShowcancel() {
-        return showcancel;
+    public Boolean getShowCancel() {
+        return showCancel;
     }
 
-    public void setShowcancel(Short showcancel) {
-        this.showcancel = showcancel;
+    public void setShowCancel(Boolean showCancel) {
+        this.showCancel = showCancel;
     }
 
-    public Short getSelectionmax() {
-        return selectionmax;
+    public Integer getSelectionMax() {
+        return selectionMax;
     }
 
-    public void setSelectionmax(Short selectionmax) {
-        this.selectionmax = selectionmax;
+    public void setSelectionMax(Integer selectionMax) {
+        this.selectionMax = selectionMax;
     }
 
-    public Short getSelectionmin() {
-        return selectionmin;
+    public Integer getSelectionMin() {
+        return selectionMin;
     }
 
-    public void setSelectionmin(Short selectionmin) {
-        this.selectionmin = selectionmin;
+    public void setSelectionMin(Integer selectionMin) {
+        this.selectionMin = selectionMin;
     }
 
     public Boolean getActive() {
@@ -261,35 +261,35 @@ public class QueOption {
         this.active = active;
     }
 
-    public Date getCreatedat() {
-        return createdat;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedat(Date createdat) {
-        this.createdat = createdat;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getCreatedby() {
-        return createdby;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreatedby(String createdby) {
-        this.createdby = createdby == null ? null : createdby.trim();
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy == null ? null : createdBy.trim();
     }
 
-    public Date getUpdatedat() {
-        return updatedat;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdatedat(Date updatedat) {
-        this.updatedat = updatedat;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public String getUpdatedby() {
-        return updatedby;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public void setUpdatedby(String updatedby) {
-        this.updatedby = updatedby == null ? null : updatedby.trim();
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy == null ? null : updatedBy.trim();
     }
 }
