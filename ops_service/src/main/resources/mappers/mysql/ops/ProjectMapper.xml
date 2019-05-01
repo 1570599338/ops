@@ -226,6 +226,6 @@
     select 
     <include refid="Base_Column_List" />
     from project
-    where 1=1
+    where 1=1 and Active=1
   </select>
 </mapper>

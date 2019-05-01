@@ -379,7 +379,7 @@
     select 
     <include refid="Base_Column_List" />
     from queoption
-    where QuestionID = #{questionID,jdbcType=INTEGER}
+    where Active=1 and QuestionID = #{questionID,jdbcType=INTEGER}
     
     order by DispIndex asc
   </select>

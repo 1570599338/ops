@@ -12,14 +12,15 @@ import com.lquan.ops.model.resp.questionnaire.QuestionResp;
 
 public interface IQuestionServer {
 	
+	
 	/**
-	 * 创建并返回数据
-	 * @param question
+	 * 插入题目
+	 * @param record
 	 * @param user
 	 * @return
 	 * @throws Exception
 	 */
-	//public Question createQuestion(QuestionResp question,String user);
+	public  QuestionReq createQuestion(QuestionReq record, String user);
 	
 	/**
 	 * 删除题目
@@ -36,7 +37,7 @@ public interface IQuestionServer {
 	 * @return
 	 * @throws Exception
 	 */
-	//public List<Orders> moveQuestion(List<Orders> objs) throws Exception;
+	public List<Orders> moveQuestion(List<Orders> objs) throws Exception;
 	
 	
 	/**
@@ -45,16 +46,9 @@ public interface IQuestionServer {
 	 * @return
 	 * @throws Exception
 	 */
-	//public Question updateTitleQuestion(Question question) throws Exception;
+	public QuestionReq updateQuestion(QuestionReq question,String user);
 	
-	/**
-	 * 插入题目
-	 * @param record
-	 * @param user
-	 * @return
-	 * @throws Exception
-	 */
-	public  QuestionReq createQuestion(QuestionReq record, String user);
+	
 	
 	/**
 	 * 插入选项数据

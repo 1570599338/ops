@@ -1,29 +1,14 @@
 package com.lquan.ops.model.po;
 
+import lombok.Data;
+
 /**
  * 排序
  * @author lquan
  *
  */
+@Data
 public class Orders {
-	private Long id; // 题目的主键
+	private Integer id; // 题目的主键
 	private int dispIndex;// 序号
-	
-	@Override
-	public String toString() {
-		return "Orders [id=" + id + ", dispIndex=" + dispIndex + "]";
-	}
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public int getDispIndex() {
-		return dispIndex;
-	}
-	public void setDispIndex(int dispIndex) {
-		this.dispIndex = dispIndex;
-	}
 }

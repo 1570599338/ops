@@ -167,7 +167,7 @@
     select 
     <include refid="Base_Column_List" />
     from statement
-    where templateID = #{templateid}
+    where Active=1 and templateID = #{templateid}
   </select>
   
 </mapper>

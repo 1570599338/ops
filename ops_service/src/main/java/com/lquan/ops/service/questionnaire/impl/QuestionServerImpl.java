@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.lquan.ops.dao.QueOptionMapper;
 import com.lquan.ops.dao.QuestionMapper;
 import com.lquan.ops.dao.TemplateMapper;
+import com.lquan.ops.model.po.Orders;
 import com.lquan.ops.model.po.QueOption;
 import com.lquan.ops.model.po.Question;
 import com.lquan.ops.model.req.questionnaire.QuestionReq;
@@ -124,54 +125,47 @@ public class QuestionServerImpl implements IQuestionServer {
 	public Question deleteQuestion(Question question,String user){
 		question.setUpdatedAt(new Date());
 		question.setUpdatedBy(user);
+		question.setActive(GlobalConstant.ACTIVE_NO);
 		questionMapper.updateByPrimaryKeySelective(question);
-//		StringBuffer sql = new StringBuffer();
-//		sql.append(" delete from question where pk_id=").append(question.getId());
-//		int a = commonDao.update(sql.toString());
-//		
-//		StringBuffer sb = new StringBuffer();
-//		sb.append("delete from queoption where QuestionID=").append(question.getId());
-//		int b = commonDao.update(sb.toString());
 		return question;
 	}
-//	
-//	/**
-//	 *  调换题目的顺序
-//	 * @param id 第一个题目的ID
-//	 * @param dispIndex 第一个题目的序号
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public List<Orders> moveQuestion(List<Orders> list) throws Exception {
-//		List<Object[]> args = new ArrayList<Object[]>();
-//		for(Orders order:list){
-//			args.add(new Object[] { order.getDispIndex(),order.getId() });
-//		}
-//		
-//		StringBuffer sql = new StringBuffer();
-//		sql.append(" update question set dispIndex =?  where pk_id=?");
-//		int[] a = commonDao.batchUpdate(sql.toString(), args);
-//		
-//		return list;
-//		
-//	}
-//
-//
-//	
-//	/**
-//	 * 题目的题目的相关的设置
-//	 * @param arg
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	@Override
-//	public Question updateTitleQuestion(Question question) throws Exception {
-//		StringBuffer sql = new StringBuffer();
-//		//sql.append(" update question set TemplateID=?,Type=?,Number=?,Title=?,ImageUrl=?,VideoUrl=?,Optional=?,Help=?,Layout=?,DispIndex=?,SelectionMax=?,SelectionMin=?,RowDisordered=?,MatrixPivot=?,RowLastFixed=?,ColDisordered=?,ColLastFixed=?,ColumnCount=?,BusinessType=?,ScoreType=?,RowReverse=?,ColReverse=?,ChartType=?,UpdatedAt=getdate()  where pk_id=?");
-//		sql.append(" update question set Title=?,UpdatedAt=getdate()  where pk_id=?");
-//		commonDao.update(sql.toString(),new Object[]{question.getTitle(),question.getId()});
-//		return question;
-//	}
+
+	/**
+	 *  调换题目的顺序
+	 * @param id 第一个题目的ID
+	 * @param dispIndex 第一个题目的序号
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Orders> moveQuestion(List<Orders> list) throws Exception {
+		for(Orders order:list){
+			Question question = new Question();
+			question.setID(order.getId());
+			question.setDispIndex(order.getDispIndex());
+			questionMapper.updateByPrimaryKeySelective(question);
+		}
+		return list;
+	}
+	
+
+
+	
+	/**
+	 * 题目的题目的相关的设置
+	 * @param arg
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
+	public QuestionReq updateQuestion(QuestionReq record,String user) {
+		
+		questionMapper.updateByPrimaryKeySelective(record);
+		List<QueOption> optionList = record.getOptions();
+		for(QueOption option:optionList) {
+			queOptionMapper.updateByPrimaryKeySelective(option);
+		}
+		return record;
+	}
 //	
 //	
 //	
