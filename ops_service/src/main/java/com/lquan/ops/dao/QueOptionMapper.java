@@ -2,7 +2,7 @@ package com.lquan.ops.dao;
 
 import java.util.List;
 
-import com.lquan.ops.model.po.QueOption;
+import com.lquan.ops.model.back.po.QueOption;
 
 public interface QueOptionMapper {
 	int deleteByPrimaryKey(Integer ID);

@@ -2,7 +2,7 @@ package com.lquan.ops.dao;
 
 import java.util.List;
 
-import com.lquan.ops.model.po.Template;
+import com.lquan.ops.model.back.po.Template;
 
 public interface TemplateMapper {
     int deleteByPrimaryKey(Integer ID);

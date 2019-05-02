@@ -2,7 +2,7 @@ package com.lquan.ops.dao;
 
 import java.util.List;
 
-import com.lquan.ops.model.po.Project;
+import com.lquan.ops.model.back.po.Project;
 
 public interface ProjectMapper {
     int deleteByPrimaryKey(Integer ID);

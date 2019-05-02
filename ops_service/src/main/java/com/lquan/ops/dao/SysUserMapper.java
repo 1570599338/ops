@@ -1,6 +1,6 @@
 package com.lquan.ops.dao;
 
-import com.lquan.ops.model.po.SysUser;
+import com.lquan.ops.model.back.po.SysUser;
 
 public interface SysUserMapper {
     int deleteByPrimaryKey(Integer id);

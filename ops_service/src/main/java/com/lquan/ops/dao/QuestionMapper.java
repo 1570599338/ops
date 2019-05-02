@@ -2,7 +2,7 @@ package com.lquan.ops.dao;
 
 import java.util.List;
 
-import com.lquan.ops.model.po.Question;
+import com.lquan.ops.model.back.po.Question;
 
 public interface QuestionMapper {
 	int deleteByPrimaryKey(Integer id);

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lquan.ops.dao.SysUserMapper;
-import com.lquan.ops.model.po.SysUser;
+import com.lquan.ops.model.back.po.SysUser;
 
 import lombok.extern.slf4j.Slf4j;
 
