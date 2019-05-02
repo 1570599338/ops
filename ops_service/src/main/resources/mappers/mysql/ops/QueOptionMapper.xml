@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lquan.ops.dao.QueOptionMapper">
-  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.QueOption">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.back.po.QueOption">
     <id column="ID" jdbcType="INTEGER" property="ID" />
     <result column="QuestionID" jdbcType="INTEGER" property="questionID" />
     <result column="Code" jdbcType="VARCHAR" property="code" />
@@ -48,7 +48,7 @@
     delete from queoption
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lquan.ops.model.po.QueOption">
+  <insert id="insert" parameterType="com.lquan.ops.model.back.po.QueOption">
     <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -73,7 +73,7 @@
       #{createdAt,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.QueOption">
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.back.po.QueOption">
     <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -251,7 +251,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.QueOption">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.back.po.QueOption">
     update queoption
     <set>
       <if test="questionID != null">
@@ -341,7 +341,7 @@
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.QueOption">
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.back.po.QueOption">
     update queoption
     set QuestionID = #{questionID,jdbcType=INTEGER},
       Code = #{code,jdbcType=VARCHAR},

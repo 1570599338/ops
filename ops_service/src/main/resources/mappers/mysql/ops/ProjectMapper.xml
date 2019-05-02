@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lquan.ops.dao.ProjectMapper">
-  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Project">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.back.po.Project">
     <id column="ID" jdbcType="INTEGER" property="ID" />
     <result column="Number" jdbcType="VARCHAR" property="number" />
     <result column="Name" jdbcType="VARCHAR" property="name" />
@@ -33,7 +33,7 @@
     delete from project
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lquan.ops.model.po.Project">
+  <insert id="insert" parameterType="com.lquan.ops.model.back.po.Project">
     <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -50,7 +50,7 @@
       #{createdBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Project">
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.back.po.Project">
     <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -150,7 +150,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Project">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.back.po.Project">
     update project
     <set>
       <if test="number != null">
@@ -201,7 +201,7 @@
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Project">
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.back.po.Project">
     update project
     set `Number` = #{number,jdbcType=VARCHAR},
       `Name` = #{name,jdbcType=VARCHAR},
@@ -222,7 +222,7 @@
   </update>
   
   <!-- 查询所有的数据 -->
-  <select id="selectAllProduct" parameterType="com.lquan.ops.model.po.Project" resultMap="BaseResultMap">
+  <select id="selectAllProduct" parameterType="com.lquan.ops.model.back.po.Project" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from project

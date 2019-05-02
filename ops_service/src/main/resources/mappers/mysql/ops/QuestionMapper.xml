@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lquan.ops.dao.QuestionMapper">
-  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Question">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.back.po.Question">
     <id column="ID" jdbcType="INTEGER" property="ID" />
     <result column="TemplateID" jdbcType="INTEGER" property="templateID" />
     <result column="Type" jdbcType="TINYINT" property="type" />
@@ -48,7 +48,7 @@
     delete from question
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lquan.ops.model.po.Question">
+  <insert id="insert" parameterType="com.lquan.ops.model.back.po.Question">
     <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -73,7 +73,7 @@
       #{createdAt,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Question">
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.back.po.Question">
     <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -251,7 +251,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Question">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.back.po.Question">
     update question
     <set>
       <if test="templateID != null">
@@ -341,7 +341,7 @@
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Question">
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.back.po.Question">
     update question
     set TemplateID = #{templateID,jdbcType=INTEGER},
       `Type` = #{type,jdbcType=TINYINT},
