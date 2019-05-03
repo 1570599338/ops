@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.ops.dao.LogicMapper">
+  <resultMap id="BaseResultMap" type="com.lquan.ops.model.po.Logic">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="TemplateID" jdbcType="INTEGER" property="templateID" />
+    <result column="QuestionID" jdbcType="INTEGER" property="questionID" />
+    <result column="OptionID" jdbcType="INTEGER" property="optionID" />
+    <result column="Type" jdbcType="TINYINT" property="type" />
+    <result column="SubjectType" jdbcType="INTEGER" property="subjectType" />
+    <result column="ExpType" jdbcType="INTEGER" property="expType" />
+    <result column="Expression" jdbcType="VARCHAR" property="expression" />
+    <result column="Target" jdbcType="VARCHAR" property="target" />
+    <result column="Active" jdbcType="BIT" property="active" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="CreatedBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="UpdatedBy" jdbcType="VARCHAR" property="updatedBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TemplateID, QuestionID, OptionID, `Type`, SubjectType, ExpType, Expression, Target, 
+    Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from logic
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from logic
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lquan.ops.model.po.Logic">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into logic (TemplateID, QuestionID, OptionID, 
+      `Type`, SubjectType, ExpType, 
+      Expression, Target, Active, 
+      CreatedAt, CreatedBy, UpdatedAt, 
+      UpdatedBy)
+    values (#{templateID,jdbcType=INTEGER}, #{questionID,jdbcType=INTEGER}, #{optionID,jdbcType=INTEGER}, 
+      #{type,jdbcType=TINYINT}, #{subjectType,jdbcType=INTEGER}, #{expType,jdbcType=INTEGER}, 
+      #{expression,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, #{active,jdbcType=BIT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lquan.ops.model.po.Logic">
+    <selectKey keyProperty="ID" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into logic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="templateID != null">
+        TemplateID,
+      </if>
+      <if test="questionID != null">
+        QuestionID,
+      </if>
+      <if test="optionID != null">
+        OptionID,
+      </if>
+      <if test="type != null">
+        `Type`,
+      </if>
+      <if test="subjectType != null">
+        SubjectType,
+      </if>
+      <if test="expType != null">
+        ExpType,
+      </if>
+      <if test="expression != null">
+        Expression,
+      </if>
+      <if test="target != null">
+        Target,
+      </if>
+      <if test="active != null">
+        Active,
+      </if>
+      <if test="createdAt != null">
+        CreatedAt,
+      </if>
+      <if test="createdBy != null">
+        CreatedBy,
+      </if>
+      <if test="updatedAt != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedBy != null">
+        UpdatedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="templateID != null">
+        #{templateID,jdbcType=INTEGER},
+      </if>
+      <if test="questionID != null">
+        #{questionID,jdbcType=INTEGER},
+      </if>
+      <if test="optionID != null">
+        #{optionID,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="subjectType != null">
+        #{subjectType,jdbcType=INTEGER},
+      </if>
+      <if test="expType != null">
+        #{expType,jdbcType=INTEGER},
+      </if>
+      <if test="expression != null">
+        #{expression,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null">
+        #{target,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lquan.ops.model.po.Logic">
+    update logic
+    <set>
+      <if test="templateID != null">
+        TemplateID = #{templateID,jdbcType=INTEGER},
+      </if>
+      <if test="questionID != null">
+        QuestionID = #{questionID,jdbcType=INTEGER},
+      </if>
+      <if test="optionID != null">
+        OptionID = #{optionID,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `Type` = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="subjectType != null">
+        SubjectType = #{subjectType,jdbcType=INTEGER},
+      </if>
+      <if test="expType != null">
+        ExpType = #{expType,jdbcType=INTEGER},
+      </if>
+      <if test="expression != null">
+        Expression = #{expression,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null">
+        Target = #{target,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null">
+        Active = #{active,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        CreatedBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UpdatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lquan.ops.model.po.Logic">
+    update logic
+    set TemplateID = #{templateID,jdbcType=INTEGER},
+      QuestionID = #{questionID,jdbcType=INTEGER},
+      OptionID = #{optionID,jdbcType=INTEGER},
+      `Type` = #{type,jdbcType=TINYINT},
+      SubjectType = #{subjectType,jdbcType=INTEGER},
+      ExpType = #{expType,jdbcType=INTEGER},
+      Expression = #{expression,jdbcType=VARCHAR},
+      Target = #{target,jdbcType=VARCHAR},
+      Active = #{active,jdbcType=BIT},
+      CreatedAt = #{createdAt,jdbcType=TIMESTAMP},
+      CreatedBy = #{createdBy,jdbcType=VARCHAR},
+      UpdatedAt = #{updatedAt,jdbcType=TIMESTAMP},
+      UpdatedBy = #{updatedBy,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

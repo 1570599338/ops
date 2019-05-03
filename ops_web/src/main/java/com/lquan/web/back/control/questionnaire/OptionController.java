@@ -67,7 +67,7 @@ public class OptionController {
 	@ResponseBody
 	public   ResponseJson updateTitle(@RequestBody QueOption record,HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try {
-			 String userName="test";
+			// String userName="test";
 			 optionServer.updateOption(record);
 			return ResponseResult.getOkResponse(record);
 		} catch (Exception e) {

@@ -1,17 +1,12 @@
 package com.lquan.web.back.control.questionnaire;
 
-import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
-import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +17,6 @@ import com.lquan.ops.model.back.po.Question;
 import com.lquan.ops.model.back.req.questionnaire.QuestionReq;
 import com.lquan.ops.model.back.resp.questionnaire.QuestionResp;
 import com.lquan.ops.service.back.questionnaire.IQuestionServer;
-import com.lquan.ops.service.back.questionnaire.IQuestionServer2;
 import com.lquan.response.ResponseJson;
 import com.lquan.response.ResponseResult;
 import com.lquan.response.ReturnCode;
@@ -111,7 +105,7 @@ public class QuestionController {
 	@ResponseBody
 	@RequestMapping(value="/move")
 	public   ResponseJson toQuestMove(@RequestBody List<Orders> orderList,HttpServletRequest request, HttpServletResponse response) throws Exception{
-		String user ="admin";
+		//String user ="admin";
 		try {
 			 this.questionServer.moveQuestion(orderList);
 			 log.info("删除题目数成功");
