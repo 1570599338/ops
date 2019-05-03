@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lquan.ops.dao.LogicMapper;
 import com.lquan.ops.dao.QueOptionMapper;
 import com.lquan.ops.dao.QuestionMapper;
 import com.lquan.ops.dao.TemplateMapper;
@@ -16,6 +17,8 @@ import com.lquan.ops.model.back.po.QueOption;
 import com.lquan.ops.model.back.po.Question;
 import com.lquan.ops.model.back.req.questionnaire.QuestionReq;
 import com.lquan.ops.model.back.resp.questionnaire.QuestionResp;
+import com.lquan.ops.model.po.Logic;
+import com.lquan.ops.service.back.questionnaire.ILogicServer;
 import com.lquan.ops.service.back.questionnaire.IQuestionServer;
 import com.lquan.ops.util.constant.GlobalConstant;
 
@@ -32,6 +35,9 @@ public class QuestionServerImpl implements IQuestionServer {
 	
 	@Autowired
 	private TemplateMapper templateMapper;
+	
+	@Autowired
+	private LogicMapper logicMapper;
 	
 	
 	/**
@@ -58,32 +64,6 @@ public class QuestionServerImpl implements IQuestionServer {
 		}
 		record.setOptions(temOptionList);
 		
-		
-//		long pk_id = PrimaryKeyGenerator.getLongKey();
-//		question.setId(pk_id);
-//		question.setCreatedBy(user);
-//		question.setUpdatedBy(user);
-//		Object[] arg = question.getObjectFile();
-//		arg[0]=pk_id;
-//		Boolean bq = createQuestion(arg);
-//		List<QueOption> qolist = question.getOptions();
-//		List<QueOption> list = new ArrayList<QueOption>();
-//		for(QueOption option:qolist){
-//			long id = PrimaryKeyGenerator.getLongKey();
-//			option.setId(id);
-//			option.setCreatedBy(user);
-//			option.setUpdatedBy(user);
-//			option.setQuestionID(pk_id);
-//			Object[] optionargs = option.getObjectFile();
-//			optionargs[0]=id;
-//			try {
-//				createOPtion(optionargs);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			list.add(option);
-//		}
-//		question.setOptions(list);
 		return record;
 	}
 //	/**
@@ -166,24 +146,8 @@ public class QuestionServerImpl implements IQuestionServer {
 		}
 		return record;
 	}
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
+	
+	
 	//************************************************************************************
 	
 	/**
@@ -194,21 +158,16 @@ public class QuestionServerImpl implements IQuestionServer {
 	 */
 	@Override
 	public List<QuestionResp> searchQuestionList(Integer id) throws Exception {
-		StringBuffer sb = new StringBuffer();
-		//sb.append("select ID,TemplateID,Type,Number,Title,ImageUrl,VideoUrl,Optional,Help,Layout,DispIndex,SelectionMax,SelectionMin,RowDisordered,MatrixPivot,RowLastFixed,ColDisordered,ColLastFixed,ColumnCount,BusinessType,ScoreType,RowReverse,ColReverse,ChartType,Active,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy from dbo.question ");
-		//sb.append("select ID,TemplateID,Type,Number,Title,ImageUrl,VideoUrl,Optional,Help,Layout,DispIndex,SelectionMax,SelectionMin,RowDisordered,MatrixPivot,RowLastFixed,ColDisordered,ColLastFixed,ColumnCount  ,BusinessType,ScoreType,RowReverse,ColReverse,ChartType,Active,CreatedAt,CreatedBy,UpdatedAt,UpdatedBy from dbo.question ");
-		//sb.append(" where TemplateID = ").append(id);
-		//sb.append(" order by DispIndex asc");
 		//
-		//List<Question> questionList = commonDao.queryForPojoList(sb.toString(), Question.class);
 		List<Question> questionList =questionMapper.searchQuestionListByTemplateID(id);
 		List<QuestionResp> list = new ArrayList<QuestionResp>();
 		for(Question question :questionList){
 			QuestionResp bean = new QuestionResp();
 			BeanUtils.copyProperties(question, bean);
-			
-			
-			//List<QueOption> optionList = getQueOption(question.getId());
+			Logic logic = new Logic();
+			logic.setQuestionID(question.getID());
+			List<Logic> logicList =logicMapper.selectByConfid(logic);
+			bean.setLogicCount(logicList==null?null:logicList.size());
 			List<QueOption> optionList = queOptionMapper.selectQueOptionByQuestionID(bean.getID());
 			if(optionList!=null && optionList.size()>0){
 				bean.setOptions(optionList);

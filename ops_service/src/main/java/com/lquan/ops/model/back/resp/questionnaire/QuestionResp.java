@@ -10,5 +10,6 @@ import lombok.Data;
 @Data
 public class QuestionResp extends Question{
 	  private List<QueOption> Options;
+	  private Integer  logicCount;
 
 }

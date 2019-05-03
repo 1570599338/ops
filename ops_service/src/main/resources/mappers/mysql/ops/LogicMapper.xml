@@ -196,4 +196,78 @@
       UpdatedBy = #{updatedBy,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=INTEGER}
   </update>
+  
+  <!-- 查询业务逻辑 -->
+  <select id="selectByConfid" parameterType="com.lquan.ops.model.po.Logic" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from logic
+    where 1=1  and Active=1 
+     <if test="templateID != null">
+        and TemplateID = #{templateID,jdbcType=INTEGER}
+      </if>
+      <if test="questionID != null">
+        and QuestionID = #{questionID,jdbcType=INTEGER}
+      </if>
+      <if test="optionID != null">
+        and OptionID = #{optionID,jdbcType=INTEGER}
+      </if>
+      <if test="type != null">
+        and `Type` = #{type,jdbcType=TINYINT}
+      </if>
+      <if test="subjectType != null">
+        and SubjectType = #{subjectType,jdbcType=INTEGER}
+      </if>
+      <if test="expType != null">
+        and ExpType = #{expType,jdbcType=INTEGER}
+      </if>
+      <if test="expression != null">
+        and Expression = #{expression,jdbcType=VARCHAR}
+      </if>
+      <if test="target != null">
+        and Target = #{target,jdbcType=VARCHAR}
+      </if>
+      <if test="active != null">
+        and Active = #{active,jdbcType=BIT}
+      </if>
+      <if test="ID != null">
+        and ID = #{ID,jdbcType=VARCHAR}
+      </if>
+  </select>
+  
+  <!-- 删除数据 -->
+   <delete id="deleteBeforeSubmit"  parameterType="com.lquan.ops.model.po.Logic">
+    delete from logic
+   where 1=1 
+     <if test="templateID != null">
+        and TemplateID = #{templateID,jdbcType=INTEGER}
+      </if>
+      <if test="questionID != null">
+        and QuestionID = #{questionID,jdbcType=INTEGER}
+      </if>
+      <if test="optionID != null">
+        and OptionID = #{optionID,jdbcType=INTEGER}
+      </if>
+      <if test="type != null">
+        and `Type` = #{type,jdbcType=TINYINT}
+      </if>
+      <if test="subjectType != null">
+        and SubjectType = #{subjectType,jdbcType=INTEGER}
+      </if>
+      <if test="expType != null">
+        and ExpType = #{expType,jdbcType=INTEGER}
+      </if>
+      <if test="expression != null">
+        and Expression = #{expression,jdbcType=VARCHAR}
+      </if>
+      <if test="target != null">
+        and Target = #{target,jdbcType=VARCHAR}
+      </if>
+      <if test="active != null">
+        and Active = #{active,jdbcType=BIT}
+      </if>
+      <if test="ID != null">
+        and ID = #{ID,jdbcType=VARCHAR}
+      </if>
+  </delete>
 </mapper>

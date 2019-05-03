@@ -1,5 +1,7 @@
 package com.lquan.ops.dao;
 
+import java.util.List;
+
 import com.lquan.ops.model.po.Logic;
 
 public interface LogicMapper {
@@ -14,4 +16,17 @@ public interface LogicMapper {
     int updateByPrimaryKeySelective(Logic record);
 
     int updateByPrimaryKey(Logic record);
+    
+    /**
+     * 逻辑查询
+     * @param record
+     * @return
+     */
+    List<Logic> selectByConfid(Logic record);
+    
+    /**
+     * 删除重复数据
+     * @param record
+     */
+   void deleteBeforeSubmit(Logic record);
 }
