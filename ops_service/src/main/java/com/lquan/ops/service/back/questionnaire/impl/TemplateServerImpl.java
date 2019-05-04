@@ -30,6 +30,7 @@ public class TemplateServerImpl implements ITemplateServer {
 		template.setActive(GlobalConstant.ACTIVE_YES);
 		template.setCreatedAt(new Date());
 		templateMapper.insertSelective(template);
+		log.info("创建问卷模版");
 		return template;
 	}
 
@@ -50,7 +51,6 @@ public class TemplateServerImpl implements ITemplateServer {
 	 */
 	@Override
 	public Template updateTemplate(Template template) {
-		// TODO Auto-generated method stub
 		templateMapper.updateByPrimaryKeySelective(template);
 		return template;
 	}

@@ -11,14 +11,12 @@ import org.springframework.stereotype.Service;
 import com.lquan.ops.dao.LogicMapper;
 import com.lquan.ops.dao.QueOptionMapper;
 import com.lquan.ops.dao.QuestionMapper;
-import com.lquan.ops.dao.TemplateMapper;
 import com.lquan.ops.model.back.po.Orders;
 import com.lquan.ops.model.back.po.QueOption;
 import com.lquan.ops.model.back.po.Question;
 import com.lquan.ops.model.back.req.questionnaire.QuestionReq;
 import com.lquan.ops.model.back.resp.questionnaire.QuestionResp;
 import com.lquan.ops.model.po.Logic;
-import com.lquan.ops.service.back.questionnaire.ILogicServer;
 import com.lquan.ops.service.back.questionnaire.IQuestionServer;
 import com.lquan.ops.util.constant.GlobalConstant;
 
@@ -33,8 +31,8 @@ public class QuestionServerImpl implements IQuestionServer {
 	@Autowired
 	private QueOptionMapper queOptionMapper;
 	
-	@Autowired
-	private TemplateMapper templateMapper;
+//	@Autowired
+//	private TemplateMapper templateMapper;
 	
 	@Autowired
 	private LogicMapper logicMapper;
