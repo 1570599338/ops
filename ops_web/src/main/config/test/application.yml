@@ -1,7 +1,7 @@
 server:
   ## 端口
   context-path: /ops
-  port: 8080
+  port: 82
 spring:
   profiles:
     ## 加载配置
