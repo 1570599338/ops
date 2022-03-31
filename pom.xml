@@ -23,7 +23,7 @@
     </parent>
     <!--版本号配置 -->
     <properties>
-        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.12</junit.version>
         <jdk.version>1.7</jdk.version>
